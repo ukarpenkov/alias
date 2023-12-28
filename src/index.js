@@ -7,6 +7,7 @@ import {
 } from '@vkontakte/vkui';
 import App from './App';
 import '@vkontakte/vkui/dist/vkui.css';
+import './index.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

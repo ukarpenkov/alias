@@ -2,3 +2,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.vkuiFixedLayout--vertical-top {
+  left: 0;
+  width: 100%;
+}

@@ -18,7 +18,7 @@ export const WordCard = () => {
 
             </Button>
             <Button size="l" mode="primary" stretched>
-              <Icon20CheckCircleOn width={20} height={20} color='blue' />
+              <Icon20CheckCircleOn width={20} height={20} color='green' />
             </Button>
           </ButtonGroup>
         }

@@ -1,3 +1,4 @@
+import { StartPanel } from "./components/StartPanel/StartPanel";
 import { WordCard } from "./components/WordCard/WordCard";
 
 import { AppRoot, Counter, Panel, View } from '@vkontakte/vkui';
@@ -7,12 +8,15 @@ function App() {
 
     <AppRoot>
 
-      <View id="main" activePanel="round">
+      {/* <View id="main" activePanel="round">
         <Panel id="round">
           <WordCard />
+          
         </Panel>
 
-      </View>
+      </View> */}
+
+      <StartPanel />
     </AppRoot>
 
 

@@ -1,4 +1,4 @@
-import { StartPanel } from "./components/StartPanel/StartPanel";
+import { StartPanel } from "./pages/StartPanel/StartPanel";
 import { WordCard } from "./components/WordCard/WordCard";
 
 import { AppRoot, Counter, Panel, View } from '@vkontakte/vkui';

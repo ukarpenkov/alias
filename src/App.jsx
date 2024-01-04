@@ -2,6 +2,7 @@ import { StartPanel } from "./pages/StartPanel/StartPanel";
 import { WordCard } from "./components/WordCard/WordCard";
 
 import { AppRoot, Counter, Panel, View } from '@vkontakte/vkui';
+import { GameSettings } from "./pages/GameSettings/GameSettings";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
 
       </View> */}
 
-      <StartPanel />
+      <GameSettings />
     </AppRoot>
 
 

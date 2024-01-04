@@ -1,5 +1,5 @@
 import {
-  AdaptivityProvider, Avatar, Badge, Button, ButtonGroup, Card, CardGrid, Cell, ContentCard, Counter, Group, Header, Image, ModalCardBase, Panel, PanelHeader, PanelHeaderClose, Tabbar, TabbarItem, Tabs, TabsItem, View, ViewWidth,
+  AdaptivityProvider, Avatar, Badge, Button, ButtonGroup, Card, CardGrid, Cell, ContentCard, Counter, Group, Header, Image, Input, ModalCardBase, Panel, PanelHeader, PanelHeaderClose, Tabbar, TabbarItem, Tabs, TabsItem, View, ViewWidth,
 
 } from '@vkontakte/vkui';
 import { Icon16Cancel, Icon20AddCircleFill, Icon20ArrowRightOutline, Icon24Add, Icon28ClipOutline, Icon28MessageOutline, Icon28NewsfeedOutline, Icon28Notifications } from '@vkontakte/icons';
@@ -12,16 +12,20 @@ export const StartPanel = () => {
         <PanelHeader
         >Команды</PanelHeader>
         <div className='command-card'>
-          <ContentCard
-            header="ContentCard example"
+          <Input
+            id="example2"
             style={{ 'width': '100%' }}
+            type="text"
+            defaultValue="Команда"
           />
           <Button size="l" appearance="accent" before={<Icon16Cancel />} />
         </div>
         <div className='command-card'>
-          <ContentCard
-            header="ContentCard example"
+          <Input
+            id="example2"
             style={{ 'width': '100%' }}
+            type="text"
+            defaultValue="Команда"
           />
           <Button size="l" appearance="accent" before={<Icon16Cancel />} />
         </div>

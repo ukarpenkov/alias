@@ -3,6 +3,7 @@ import { WordCard } from "./components/WordCard/WordCard";
 
 import { AppRoot, Counter, Panel, View } from '@vkontakte/vkui';
 import { GameSettings } from "./pages/GameSettings/GameSettings";
+import { CurrentInfo } from "./pages/CurrentInfo/CurrentInfo";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
 
       </View> */}
 
-      <GameSettings />
+      <CurrentInfo />
     </AppRoot>
 
 

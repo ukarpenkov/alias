@@ -4,6 +4,7 @@ import { WordCard } from "./components/WordCard/WordCard";
 import { AppRoot, Counter, Panel, View } from '@vkontakte/vkui';
 import { GameSettings } from "./pages/GameSettings/GameSettings";
 import { CurrentInfo } from "./pages/CurrentInfo/CurrentInfo";
+import { Result } from "./pages/Result/Result";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
 
       </View> */}
 
-      <CurrentInfo />
+      <Result />
     </AppRoot>
 
 

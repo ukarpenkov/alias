@@ -5,6 +5,7 @@ import { AppRoot, Counter, Panel, View } from '@vkontakte/vkui';
 import { GameSettings } from "./pages/GameSettings/GameSettings";
 import { CurrentInfo } from "./pages/CurrentInfo/CurrentInfo";
 import { Result } from "./pages/Result/Result";
+import { WordsEdit } from "./pages/WordsEdit/WordsEdit";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
 
       </View> */}
 
-      <Result />
+      <WordsEdit />
     </AppRoot>
 
 

@@ -8,6 +8,7 @@ import { Result } from "./pages/Result/Result";
 import { WordsEdit } from "./pages/WordsEdit/WordsEdit";
 import { store } from "./store/store";
 
+
 function App() {
   return (
 
@@ -21,7 +22,8 @@ function App() {
 
       </View> */}
 
-        <WordsEdit />
+        <StartPanel />
+
       </Provider>
     </AppRoot>
 

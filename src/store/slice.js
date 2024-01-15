@@ -1,20 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { wordDB } from '../data/words'
 
+const commandInitialState = []
 
 const gameSlice = createSlice({
   name: 'game',
   initialState: {
-    commands: ['звери', 'люди'],
+    commands: commandInitialState,
     words: wordDB
   },
   reducers: {
     addComand(state, action) {
-      state.commands = state.commands.push('новички')
+      state.commands.push(action)
     }
   }
 
 })
 
-export default gameSlice.reducer
-export const { addComand } = gameSlice.actions
+export const { actions, reducer } = gameSlice

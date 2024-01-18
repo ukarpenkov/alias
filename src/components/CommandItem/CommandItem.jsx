@@ -5,7 +5,10 @@ import {
 
 import { Icon16Cancel, Icon20AddCircleFill, Icon20ArrowRightOutline, Icon24Add, Icon28ClipOutline, Icon28MessageOutline, Icon28NewsfeedOutline, Icon28Notifications } from '@vkontakte/icons';
 
+import { useSelector } from 'react-redux'
+
 export const CommandItem = ({ name }) => {
+
   return (
     <div className='command-card'>
       <Input

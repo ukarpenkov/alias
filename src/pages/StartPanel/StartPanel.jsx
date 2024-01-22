@@ -7,7 +7,7 @@ import './StartPanel.css'
 import { useDispatch } from 'react-redux'
 import { CommandItem } from '../../components/CommandItem/CommandItem';
 import { CommandsList } from '../../components/CommandsList/CommandsList';
-import { actions, addComand } from '../../store/slice';
+import { actions, addCommand } from '../../store/slice';
 
 export const StartPanel = () => {
   const dispatch = useDispatch()
@@ -20,7 +20,7 @@ export const StartPanel = () => {
         <CommandsList />
         <Button
           onClick={() => {
-            dispatch(addComand('Новая'))
+            dispatch(addCommand({ id: Date.now(), name: 'Команда без названия' }))
           }}
           style={{ 'width': '100%' }} size='l' className='add-command-btn'>
           <span>Добавить команду&nbsp; </span> <Icon20AddCircleFill />

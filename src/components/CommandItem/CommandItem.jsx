@@ -1,21 +1,28 @@
 import {
-  AdaptivityProvider, Avatar, Badge, Button, ButtonGroup, Card, CardGrid, Cell, ContentCard, Counter, Group, Header, Image, Input, ModalCardBase, Panel, PanelHeader, PanelHeaderClose, Tabbar, TabbarItem, Tabs, TabsItem, View, ViewWidth,
-
+  Button, Input,
 } from '@vkontakte/vkui';
 
-import { Icon16Cancel, Icon20AddCircleFill, Icon20ArrowRightOutline, Icon24Add, Icon28ClipOutline, Icon28MessageOutline, Icon28NewsfeedOutline, Icon28Notifications } from '@vkontakte/icons';
+import { Icon16Cancel, } from '@vkontakte/icons';
 
 import { useSelector } from 'react-redux'
 import { actions, addCommand } from '../../store/slice';
 import { useDispatch } from 'react-redux'
 
-export const CommandItem = ({ name, id, removeCommand }) => {
+export const CommandItem = ({ name, id, removeCommand, editCommand }) => {
   return (
     <div className='command-card'>
       <Input
-
         style={{ 'width': '100%' }}
         type="text"
+        onFocus={(e) => {
+          e.target.value = ''
+        }}
+        onChange={(e) => {
+
+          let newName = e.target.value
+          editCommand({ name: newName, id })
+
+        }}
         defaultValue={name}
       />
       <Button size="l"

@@ -1,6 +1,6 @@
 import { CommandItem } from "../CommandItem/CommandItem"
 import { useSelector } from 'react-redux'
-import { actions, addCommand, removeCommand } from '../../store/slice';
+import { actions, addCommand, editCommand, removeCommand } from '../../store/slice';
 import { useDispatch } from 'react-redux'
 export const CommandsList = () => {
   const commands = useSelector(state => state.game.commands)
@@ -8,9 +8,12 @@ export const CommandsList = () => {
   const handleRemoveCommand = (id) => {
     dispatch(removeCommand(id))
   }
-
+  const handleEditCommand = (name, id) => {
+    dispatch(editCommand(name, id))
+  }
+  console.log(commands)
   return <>
-    {commands.map((item) => <CommandItem key={item.id} {...item} removeCommand={handleRemoveCommand} />)}
+    {commands.map((item) => <CommandItem key={item.id} {...item} removeCommand={handleRemoveCommand} editCommand={handleEditCommand} />)}
   </>
 
 

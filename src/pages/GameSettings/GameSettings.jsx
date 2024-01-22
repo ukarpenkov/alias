@@ -37,8 +37,8 @@ export const GameSettings = () => {
       <Panel id="new-user">
         <PanelHeader>Настройки</PanelHeader>
         <Group>
-          <FormLayout>
-            <FormItem top={<h1 id="basic">Количество слов</h1>}>
+          <FormLayout >
+            <FormItem top={<h1 id="basic">Количество слов</h1>} >
               <Slider value={Number(valueBasic)} aria-labelledby="basic" onChange={setValueBasic} />
             </FormItem>
             <FormItem>

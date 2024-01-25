@@ -4,33 +4,24 @@ import {
 } from '@vkontakte/vkui';
 import { Icon16Cancel, Icon20AddCircleFill, Icon20ArrowRightOutline, Icon24Add, Icon28ClipOutline, Icon28MessageOutline, Icon28NewsfeedOutline, Icon28Notifications } from '@vkontakte/icons';
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { setTime } from '../../store/slice';
 
-
-const addressItems = [
-  { label: 'Почтовый индекс', name: 'zip' },
-  { label: 'Страна', name: 'country' },
-  { label: 'Город', name: 'city' },
-];
 
 export const GameSettings = () => {
-  const [email, setEmail] = useState('');
-  const [purpose, setPurpose] = useState('');
-  const [showPatronymic, setShowPatronymic] = React.useState(true);
-  const [valueBasic, setValueBasic] = useState(24.4234);
-  const onChange = (e) => {
-    const { name, value } = e.currentTarget;
+  const settings = useSelector(state => state.game.settings)
+  console.log(settings)
+  const dispatch = useDispatch()
+  //
 
-    const setStateAction = {
-      email: setEmail,
-      purpose: setPurpose,
-    }[name];
+  const [valueBasic, setValueBasic] = useState(settings.roundTime);
 
-    setStateAction && setStateAction(value);
-  };
+  const changeWordsCount = (a) => {
+    dispatch(setTime(a))
+    setValueBasic(settings.roundTime)
+    console.log(settings.roundTime)
+  }
 
-  const onShowPatronymic = () => setShowPatronymic(true);
-
-  const onRemove = () => setShowPatronymic(false);
 
   return (
     <View activePanel="new-user">
@@ -38,24 +29,32 @@ export const GameSettings = () => {
         <PanelHeader>Настройки</PanelHeader>
         <Group>
           <FormLayout >
-            <FormItem top={<h1 id="basic">Количество слов</h1>} >
-              <Slider value={Number(valueBasic)} aria-labelledby="basic" onChange={setValueBasic} />
-            </FormItem>
-            <FormItem>
-              <Input
-                type="number"
-                value={String(valueBasic)}
-                onChange={(e) => setValueBasic(e.target.value)}
+            <FormItem top={<h1 id="words">Количество слов</h1>} >
+              <Slider value={String(valueBasic)} step={10} aria-labelledby="words" onChange={setValueBasic}
+              // onTouchEnd={() => { dispatch(setTime(valueBasic)) }}
               />
             </FormItem>
-            <FormItem top={<h1 id="basic">Время раунда</h1>}>
-              <Slider value={Number(valueBasic)} aria-labelledby="basic" onChange={setValueBasic} />
-            </FormItem>
             <FormItem>
               <Input
                 type="number"
                 value={String(valueBasic)}
-                onChange={(e) => setValueBasic(e.target.value)}
+                onChange={(e) => {
+                  console.log(e.target.value)
+                }}
+              />
+            </FormItem>
+            <FormItem top={<h1 id="time">Время раунда, сек.</h1>}>
+              <Slider step={10} value={String(settings.roundTime)} aria-labelledby="time" onChange={() => {
+                console.log(settings)
+              }} />
+            </FormItem>
+            <FormItem>
+              <Input
+                type="number"
+                value={String(settings.roundTime)}
+                onChange={() => {
+                  console.log(settings)
+                }}
               />
             </FormItem>
           </FormLayout>

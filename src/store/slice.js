@@ -4,15 +4,15 @@ import { wordDB } from '../data/words'
 const commandInitialState = [{ id: '1', name: 'Бельчата' }, { id: '2', name: 'Крольчата' }]
 const gameInitialState = {
   roundTime: 60,
-  wordsToWind: 50
-
+  wordsToWin: 50
 }
 
 const gameSlice = createSlice({
   name: 'game',
   initialState: {
     commands: commandInitialState,
-    words: wordDB
+    words: wordDB,
+    settings: gameInitialState
   },
   reducers: {
     addCommand(state, action) {
@@ -27,10 +27,13 @@ const gameSlice = createSlice({
       let index = updatedState.findIndex(item => item.id === action.payload.id)
       updatedState[index].name = action.payload.name
       state.commands = updatedState
+    },
+    setTime(state, action) {
+      state.settings.roundTime = action.payload
     }
   }
 
 })
 
 export default gameSlice.reducer
-export const { addCommand, removeCommand, editCommand } = gameSlice.actions
+export const { addCommand, removeCommand, editCommand, setTime } = gameSlice.actions

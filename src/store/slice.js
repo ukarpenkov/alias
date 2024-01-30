@@ -28,12 +28,15 @@ const gameSlice = createSlice({
       updatedState[index].name = action.payload.name
       state.commands = updatedState
     },
-    setTime(state, action) {
+    changeRoundTime(state, action) {
       state.settings.roundTime = action.payload
+    },
+    chengeWordsCount(state, action) {
+      state.settings.wordsToWin = action.payload
     }
   }
 
 })
 
 export default gameSlice.reducer
-export const { addCommand, removeCommand, editCommand, setTime } = gameSlice.actions
+export const { addCommand, removeCommand, editCommand, changeRoundTime, chengeWordsCount } = gameSlice.actions

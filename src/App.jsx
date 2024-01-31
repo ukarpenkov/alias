@@ -15,14 +15,14 @@ function App() {
     <AppRoot>
       <Provider store={store}>
         {/* <View id="main" activePanel="round">
-        <Panel id="round">
-          <WordCard />
-          
-        </Panel>
+          <Panel id="round">
+            <WordCard />
 
-      </View> */}
+          </Panel>
 
-        <GameSettings />
+        </View> */}
+
+        <WordCard />
 
       </Provider>
     </AppRoot>

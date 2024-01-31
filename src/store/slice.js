@@ -3,7 +3,7 @@ import { wordDB } from '../data/words'
 
 const commandInitialState = [{ id: '1', name: 'Бельчата' }, { id: '2', name: 'Крольчата' }]
 const gameInitialState = {
-  roundTime: 60,
+  roundTime: 10,
   wordsToWin: 50
 }
 

@@ -9,8 +9,8 @@ import { changeRoundTime, chengeWordsCount, setTime } from '../../store/slice';
 import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 
-export const Timer = ({ seconds = 3 }) => {
-
+export const Timer = () => {
+  const seconds = useSelector(state => state.game.settings.roundTime)
   const [over, setOver] = React.useState(false);
   const [[s], setTime] = React.useState([seconds]);
 

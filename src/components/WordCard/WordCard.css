@@ -1,0 +1,13 @@
+.wordcard-container {
+  display: grid;
+}
+
+.current-result {
+  display: flex;
+  margin-top: 25px;
+  justify-content: space-around;
+}
+
+.current-result-wrapper {
+  display: grid;
+}

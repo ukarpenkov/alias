@@ -1,0 +1,20 @@
+.mainpage-wrapper {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.game-logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #5fd562;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.game-logo-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 45px;
+  font-weight: bold;
+}

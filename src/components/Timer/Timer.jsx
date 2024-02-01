@@ -15,8 +15,6 @@ export const Timer = () => {
   const [[s], setTime] = React.useState([seconds]);
 
   const tick = () => {
-
-
     if (s === 0) {
       setOver(true);
     } else {

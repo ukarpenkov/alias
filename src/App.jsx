@@ -8,6 +8,7 @@ import { Result } from "./pages/Result/Result";
 import { WordsEdit } from "./pages/WordsEdit/WordsEdit";
 import { store } from "./store/store";
 import { MainPage } from "./pages/MainPage/MainPage";
+import { Rules } from "./pages/Rules/Rules";
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
 
         </View> */}
 
-        <MainPage />
+        <Rules />
 
       </Provider>
     </AppRoot>

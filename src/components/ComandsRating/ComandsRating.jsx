@@ -3,9 +3,9 @@ import {
 
 } from '@vkontakte/vkui';
 import { Icon16Cancel, Icon16Cards2, Icon20AddCircleFill, Icon20ArrowRightOutline, Icon20FireCircleFillRed, Icon24Add, Icon28ClipOutline, Icon28MessageOutline, Icon28NewsfeedOutline, Icon28Notifications, Icon56UsersOutline } from '@vkontakte/icons';
-export const ComandsRating = () => {
+export const ComandsRating = ({ changePanel }) => {
   return (
-    <Panel>
+    <>
       <PanelHeader
       >Рейтинг</PanelHeader>
       <div className='command-card'>
@@ -39,10 +39,11 @@ export const ComandsRating = () => {
       <Tabbar>
         <TabbarItem
           text="Начать игру"
+
         >
           <Icon20FireCircleFillRed />
         </TabbarItem>
       </Tabbar>
-    </Panel>
+    </>
   )
 }

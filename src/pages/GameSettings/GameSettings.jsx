@@ -9,7 +9,7 @@ import { changeRoundTime, chengeWordsCount, setTime } from '../../store/slice';
 import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 
-export const GameSettings = () => {
+export const GameSettings = ({ changePanel }) => {
   const settings = useSelector(state => state.game.settings)
   console.log(settings)
   const dispatch = useDispatch()
@@ -33,46 +33,47 @@ export const GameSettings = () => {
   }, [roundTime])
 
   return (
-    <View activePanel="new-user">
-      <Panel id="new-user">
-        <PanelHeader>Настройки</PanelHeader>
-        <Group>
-          <FormLayout >
-            <FormItem top={<h1 id="words">Количество слов</h1>} >
-              <Slider value={Number(wordsCount)} step={1} min={1} aria-labelledby="words" onChange={setWordsCount}
-              />
-            </FormItem>
-            <FormItem>
-              <Input
-                type="number"
-                value={String(wordsCount)}
-                onChange={(e) => setWordsCount(e.target.value)
-                }
-                disabled={true}
-              />
-            </FormItem>
-            <FormItem top={<h1 id="time">Время раунда, сек.</h1>}>
-              <Slider step={1} min={1} max={100} value={Number(roundTime)} aria-labelledby="time" onChange={setRoundTime} />
-            </FormItem>
-            <FormItem>
-              <Input
-                type="number"
-                value={String(roundTime)}
-                onChange={(e) => setRoundTime(e.target.value)}
-                disabled={true}
-              />
-            </FormItem>
-          </FormLayout>
-        </Group>
-        <Tabbar>
-          <TabbarItem
-            text="Далее"
-          >
-            <Icon20ArrowRightOutline />
-          </TabbarItem>
-        </Tabbar>
-      </Panel>
-    </View>
+
+    <>
+      <PanelHeader>Настройки</PanelHeader>
+      <Group>
+        <FormLayout >
+          <FormItem top={<h1 id="words">Количество слов</h1>} >
+            <Slider value={Number(wordsCount)} step={1} min={1} aria-labelledby="words" onChange={setWordsCount}
+            />
+          </FormItem>
+          <FormItem>
+            <Input
+              type="number"
+              value={String(wordsCount)}
+              onChange={(e) => setWordsCount(e.target.value)
+              }
+              disabled={true}
+            />
+          </FormItem>
+          <FormItem top={<h1 id="time">Время раунда, сек.</h1>}>
+            <Slider step={1} min={1} max={100} value={Number(roundTime)} aria-labelledby="time" onChange={setRoundTime} />
+          </FormItem>
+          <FormItem>
+            <Input
+              type="number"
+              value={String(roundTime)}
+              onChange={(e) => setRoundTime(e.target.value)}
+              disabled={true}
+            />
+          </FormItem>
+        </FormLayout>
+      </Group>
+      <Tabbar>
+        <TabbarItem
+          text="Далее"
+          onClick={() => changePanel('commands-rating')}
+        >
+          <Icon20ArrowRightOutline />
+        </TabbarItem>
+      </Tabbar>
+    </>
+
   );
 };
 

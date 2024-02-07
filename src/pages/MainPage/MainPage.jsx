@@ -27,7 +27,9 @@ export const MainPage = ({ changePanel }) => {
           width: '300px',
           height: '50px',
           backgroundColor: 'yellow'
-        }}>
+        }}
+          onClick={() => changePanel('rules')}
+        >
           <Icon20ErrorCircleFillYellow width={20} height={20} color='green' />
           &nbsp;ПРАВИЛА
         </Button>

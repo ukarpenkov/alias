@@ -28,7 +28,7 @@ export const StartPanel = ({ changePanel }) => {
       </Button>
       <Tabbar>
         <TabbarItem
-          onClick={() => changePanel('main')}
+          onClick={() => changePanel('settings')}
           text="Далее"
         >
           <Icon20ArrowRightOutline />

@@ -9,9 +9,16 @@ import { WordsEdit } from "./pages/WordsEdit/WordsEdit";
 import { store } from "./store/store";
 import { MainPage } from "./pages/MainPage/MainPage";
 import { Rules } from "./pages/Rules/Rules";
+import { useState } from "react";
 
 
 function App() {
+  const [activePanel, setActivePanel] = useState('commands');
+
+  const changePanel = (id) => {
+    setActivePanel(id)
+  }
+
   return (
 
     <AppRoot>
@@ -23,8 +30,15 @@ function App() {
           </Panel>
 
         </View> */}
+        <View activePanel={activePanel}>
+          <Panel id="main">
+            <MainPage changePanel={changePanel} />
+          </Panel>
+          <Panel id="commands">
+            <StartPanel changePanel={changePanel} />
+          </Panel>
 
-        <Rules />
+        </View>
 
       </Provider>
     </AppRoot>

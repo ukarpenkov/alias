@@ -28,7 +28,6 @@ export const Rules = () => {
           <TabbarItem
             text="Меню"
           >
-
             <Icon24Back />
           </TabbarItem>
         </Tabbar>

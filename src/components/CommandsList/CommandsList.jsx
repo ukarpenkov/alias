@@ -1,6 +1,6 @@
 import { CommandItem } from "../CommandItem/CommandItem"
 import { useSelector } from 'react-redux'
-import { actions, addCommand, editCommand, removeCommand } from '../../store/slice';
+import { editCommand, removeCommand } from '../../store/slice';
 import { useDispatch } from 'react-redux'
 
 

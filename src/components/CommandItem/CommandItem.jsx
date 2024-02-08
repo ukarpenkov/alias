@@ -4,10 +4,6 @@ import {
 
 import { Icon16Cancel, } from '@vkontakte/icons';
 
-import { useSelector } from 'react-redux'
-import { actions, addCommand } from '../../store/slice';
-import { useDispatch } from 'react-redux'
-import { useState } from 'react';
 
 export const CommandItem = ({ name, id, removeCommand, editCommand, result }) => {
   console.log('first', result, result === 'false')

@@ -1,8 +1,8 @@
 import {
-  AdaptivityProvider, Button, ButtonGroup, Card, CardGrid, Counter, Group, Image, ModalCardBase, Panel, PanelHeader, Tabbar, TabbarItem, View, ViewWidth,
+  Button, ButtonGroup, Counter, Group, ModalCardBase, PanelHeader, Tabbar, TabbarItem,
 
 } from '@vkontakte/vkui';
-import { Icon20ArrowRightOutline, Icon20CancelCircleFillRed, Icon20CheckCircleOn, Icon24Cancel, Icon24LogoVk } from '@vkontakte/icons';
+import { Icon20ArrowRightOutline, Icon20CancelCircleFillRed, Icon20CheckCircleOn } from '@vkontakte/icons';
 import { Timer } from '../Timer/Timer';
 import './WordCard.css'
 

@@ -1,28 +1,15 @@
 import {
-  AdaptivityProvider, Button, ButtonGroup, Card, CardGrid, Counter, Image, Input, ModalCardBase, Panel, PanelHeader, Placeholder, Tabbar, TabbarItem, ViewWidth,
+  Button, PanelHeader, Placeholder, Tabbar, TabbarItem,
 
 } from '@vkontakte/vkui';
-import { Icon16Cancel, Icon16Cards2, Icon20AddCircleFill, Icon20ArrowRightOutline, Icon20FireCircleFillRed, Icon24Add, Icon28ClipOutline, Icon28MessageOutline, Icon28NewsfeedOutline, Icon28Notifications, Icon56UsersOutline } from '@vkontakte/icons';
+import { Icon16Cards2, Icon20FireCircleFillRed } from '@vkontakte/icons';
 import { CommandsList } from '../CommandsList/CommandsList';
-export const ComandsRating = ({ changePanel }) => {
+export const ComandsRating = ({ changePanel, result }) => {
   return (
     <>
       <PanelHeader
       >Рейтинг</PanelHeader>
-      <div className='command-card'>
-        <CommandsList />
-        <Button size="l" appearance="accent" before={10} />
-      </div>
-      <div className='command-card'>
-        <Input
-          id="example2"
-          style={{ 'width': '100%' }}
-          type="text"
-          defaultValue="Команда"
-        />
-        <Button size="l" appearance="accent" before={10} />
-      </div>
-
+      <CommandsList result={result} />
       <div className='roundInfo'>
         <Placeholder
           icon={<Icon16Cards2 />}

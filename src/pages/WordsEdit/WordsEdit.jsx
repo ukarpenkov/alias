@@ -1,8 +1,8 @@
 import {
-  AdaptivityProvider, Button, ButtonGroup, Card, CardGrid, Counter, Image, Input, ModalCardBase, Panel, PanelHeader, Placeholder, Tabbar, TabbarItem, View, ViewWidth,
+  Button, Input, Panel, PanelHeader, Tabbar, TabbarItem, View,
 
 } from '@vkontakte/vkui';
-import { Icon16Cancel, Icon16Cards2, Icon20AddCircleFill, Icon20ArrowRightOutline, Icon20ChevronRight2, Icon20FireCircleFillRed, Icon20ThumbsUpOutline, Icon24Add, Icon28ClipOutline, Icon28MessageOutline, Icon28NewsfeedOutline, Icon28Notifications, Icon56UsersOutline } from '@vkontakte/icons';
+import { Icon20ChevronRight2, Icon20ThumbsUpOutline } from '@vkontakte/icons';
 
 
 export const WordsEdit = () => {

@@ -1,11 +1,10 @@
 import {
-  Button, Panel, PanelHeader, Tabbar, TabbarItem, View,
+  Button, PanelHeader, Tabbar, TabbarItem,
 
 } from '@vkontakte/vkui';
 import { Icon20AddCircleFill, Icon20ArrowRightOutline, } from '@vkontakte/icons';
 import './StartPanel.css'
 import { useDispatch } from 'react-redux'
-import { CommandItem } from '../../components/CommandItem/CommandItem';
 import { CommandsList } from '../../components/CommandsList/CommandsList';
 import { addCommand } from '../../store/slice';
 

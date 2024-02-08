@@ -7,8 +7,11 @@ import { Icon16Cancel, } from '@vkontakte/icons';
 import { useSelector } from 'react-redux'
 import { actions, addCommand } from '../../store/slice';
 import { useDispatch } from 'react-redux'
+import { useState } from 'react';
 
-export const CommandItem = ({ name, id, removeCommand, editCommand }) => {
+export const CommandItem = ({ name, id, removeCommand, editCommand, result }) => {
+  console.log('first', result, result === 'false')
+
   return (
     <div className='command-card'>
       <Input
@@ -26,10 +29,11 @@ export const CommandItem = ({ name, id, removeCommand, editCommand }) => {
         defaultValue={name}
       />
       <Button size="l"
+        disabled={(result === 'false') ? false : true}
         onClick={() => {
           removeCommand(id)
         }}
-        appearance="accent" before={<Icon16Cancel />} />
+        appearance="accent" before={(result === 'false') ? <Icon16Cancel /> : 'HI'} />
     </div>
   )
 }

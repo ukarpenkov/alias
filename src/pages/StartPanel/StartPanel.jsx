@@ -9,8 +9,8 @@ import { CommandItem } from '../../components/CommandItem/CommandItem';
 import { CommandsList } from '../../components/CommandsList/CommandsList';
 import { addCommand } from '../../store/slice';
 
-export const StartPanel = ({ changePanel }) => {
-  console.log(changePanel)
+export const StartPanel = ({ changePanel, result }) => {
+
   const dispatch = useDispatch()
   return (
 
@@ -18,7 +18,7 @@ export const StartPanel = ({ changePanel }) => {
       <PanelHeader
       >Команды</PanelHeader>
 
-      <CommandsList />
+      <CommandsList result={result} />
       <Button
         onClick={() => {
           dispatch(addCommand({ id: Date.now(), name: 'Команда без названия' }))

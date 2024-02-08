@@ -3,18 +3,14 @@ import {
 
 } from '@vkontakte/vkui';
 import { Icon16Cancel, Icon16Cards2, Icon20AddCircleFill, Icon20ArrowRightOutline, Icon20FireCircleFillRed, Icon24Add, Icon28ClipOutline, Icon28MessageOutline, Icon28NewsfeedOutline, Icon28Notifications, Icon56UsersOutline } from '@vkontakte/icons';
+import { CommandsList } from '../CommandsList/CommandsList';
 export const ComandsRating = ({ changePanel }) => {
   return (
     <>
       <PanelHeader
       >Рейтинг</PanelHeader>
       <div className='command-card'>
-        <Input
-          id="example2"
-          style={{ 'width': '100%' }}
-          type="text"
-          defaultValue="Команда"
-        />
+        <CommandsList />
         <Button size="l" appearance="accent" before={10} />
       </div>
       <div className='command-card'>
@@ -39,7 +35,7 @@ export const ComandsRating = ({ changePanel }) => {
       <Tabbar>
         <TabbarItem
           text="Начать игру"
-
+          onClick={() => changePanel('word-card')}
         >
           <Icon20FireCircleFillRed />
         </TabbarItem>

@@ -24,13 +24,6 @@ function App() {
 
     <AppRoot>
       <Provider store={store}>
-        {/* <View id="main" activePanel="round">
-          <Panel id="round">
-            <WordCard />
-
-          </Panel>
-
-        </View> */}
         <View activePanel={activePanel}>
           <Panel id="main">
             <MainPage changePanel={changePanel} />
@@ -39,14 +32,19 @@ function App() {
             <Rules changePanel={changePanel} />
           </Panel>
           <Panel id="commands">
-            <StartPanel changePanel={changePanel} />
+            <StartPanel changePanel={changePanel} result='false' />
           </Panel>
-
           <Panel id="settings">
             <GameSettings changePanel={changePanel} />
           </Panel>
           <Panel id='commands-rating'>
-            <ComandsRating />
+            <ComandsRating changePanel={changePanel} result='true' />
+          </Panel>
+          <Panel id='word-card'>
+            <WordCard changePanel={changePanel} />
+          </Panel>
+          <Panel id='result'>
+            <Result changePanel={changePanel} />
           </Panel>
 
         </View>

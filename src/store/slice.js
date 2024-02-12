@@ -4,7 +4,8 @@ import { wordDB } from '../data/words'
 const commandInitialState = [{ id: '1', name: 'Бельчата', score: 0 }, { id: '2', name: 'Крольчата', score: 0 }]
 const gameInitialState = {
   roundTime: 10,
-  wordsToWin: 50
+  wordsToWin: 50,
+  currentRound: 1,
 }
 
 const gameSlice = createSlice({

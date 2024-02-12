@@ -4,7 +4,12 @@ import {
 } from '@vkontakte/vkui';
 import { Icon16Cards2, Icon20FireCircleFillRed } from '@vkontakte/icons';
 import { CommandsList } from '../CommandsList/CommandsList';
+import { useSelector } from 'react-redux'
+
 export const ComandsRating = ({ changePanel, result }) => {
+  const round = useSelector(state => state.game.settings.currentRound)
+  const commandsList = useSelector(state => [...state.game.commands].map(item => item.name))
+  console.log(commandsList)
   return (
     <>
       <PanelHeader
@@ -14,7 +19,7 @@ export const ComandsRating = ({ changePanel, result }) => {
         <Placeholder
           icon={<Icon16Cards2 />}
           header={`Раунд ${1}`}
-          action={<Button size="m">Команда {1}</Button>}
+          action={<Button size="m">Команда {round}</Button>}
         >
           Готовимся к игре
         </Placeholder>

@@ -72,7 +72,6 @@ export const GameSettings = ({ changePanel }) => {
         </TabbarItem>
       </Tabbar>
     </>
-
   );
 };
 

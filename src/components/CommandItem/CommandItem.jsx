@@ -5,7 +5,7 @@ import {
 import { Icon16Cancel, } from '@vkontakte/icons';
 
 
-export const CommandItem = ({ name, id, removeCommand, editCommand, result }) => {
+export const CommandItem = ({ name, id, score, removeCommand, editCommand, result }) => {
   console.log('first', result, result === 'false')
 
   return (
@@ -29,7 +29,7 @@ export const CommandItem = ({ name, id, removeCommand, editCommand, result }) =>
         onClick={() => {
           removeCommand(id)
         }}
-        appearance="accent" before={(result === 'false') ? <Icon16Cancel /> : 'HI'} />
+        appearance="accent" before={(result === 'false') ? <Icon16Cancel /> : score} />
     </div>
   )
 }

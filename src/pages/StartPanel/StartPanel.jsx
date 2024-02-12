@@ -20,7 +20,7 @@ export const StartPanel = ({ changePanel, result }) => {
       <CommandsList result={result} />
       <Button
         onClick={() => {
-          dispatch(addCommand({ id: Date.now(), name: 'Команда без названия' }))
+          dispatch(addCommand({ id: Date.now(), name: 'Команда без названия', score: 0 }))
         }}
         style={{ 'width': '100%' }} size='l' className='add-command-btn'>
         <span>Добавить команду&nbsp; </span> <Icon20AddCircleFill />

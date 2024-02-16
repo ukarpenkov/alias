@@ -1,6 +1,6 @@
 
 
-export const wordDB = [
+export const wordsData = [
   'Солнце',
   'Кофе',
   'Дерево',
@@ -202,3 +202,6 @@ export const wordDB = [
   'Крючок',
   'Часы'
 ];
+
+
+export const wordDB = wordsData.sort(function () { return Math.random() - 0.5 })

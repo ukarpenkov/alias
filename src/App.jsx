@@ -9,6 +9,7 @@ import { MainPage } from "./pages/MainPage/MainPage";
 import { Rules } from "./pages/Rules/Rules";
 import { useState } from "react";
 import { ComandsRating } from "./components/ComandsRating/ComandsRating";
+import { wordDB } from "./data/words";
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   const changePanel = (id) => {
     setActivePanel(id)
   }
-
+  console.log(wordDB)
   return (
 
     <AppRoot>

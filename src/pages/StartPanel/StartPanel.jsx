@@ -36,11 +36,10 @@ export const StartPanel = ({ changePanel, result }) => {
       <CommandsList result={result} setCommandsCount={setCommandsCount} commandsCount={commandsCount} />
       {commandsCount <= 4 ? <Button
         onClick={() => addNewCommnadWithWords()}
-        style={{ 'width': '100%' }} size='l' className='add-command-btn'>
+        style={{ 'width': '100%', marginTop: '10px' }} size='l' className='add-command-btn'>
         <span>Добавить команду&nbsp; </span> <Icon20AddCircleFill />
       </Button> : <Button
-
-        style={{ 'width': '100%', backgroundColor: 'red' }} size='l' className='add-command-btn'>
+        style={{ 'width': '100%', backgroundColor: 'red', marginTop: '10px' }} size='l' className='add-command-btn'>
         <span>Невозможно добавить более 5 команд&nbsp; </span> <Icon20ErrorCircleFillYellow />
       </Button>}
 

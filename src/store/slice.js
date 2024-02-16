@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { wordDB } from '../data/words'
 
-const commandInitialState = [{ id: '1', name: 'Бельчата', score: 0 }, { id: '2', name: 'Крольчата', score: 0 }]
+const commandInitialState = [
+  { id: '1', name: 'Бельчата', score: 0, round: 1, words: wordDB },
+  { id: '2', name: 'Крольчата', score: 0, round: 1, words: wordDB }
+]
 const gameInitialState = {
   roundTime: 10,
   wordsToWin: 50,
@@ -18,7 +21,6 @@ const gameSlice = createSlice({
   reducers: {
     addCommand(state, action) {
       state.commands.push(action.payload)
-
     },
     removeCommand(state, action) {
       state.commands = state.commands.filter((item) => item.id !== action.payload)

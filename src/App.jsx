@@ -18,7 +18,7 @@ function App() {
   const changePanel = (id) => {
     setActivePanel(id)
   }
-  console.log(wordDB)
+
   return (
 
     <AppRoot>

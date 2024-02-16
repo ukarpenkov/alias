@@ -1,12 +1,14 @@
 import {
   Button, Input,
+  Tooltip,
 } from '@vkontakte/vkui';
 
 import { Icon16Cancel, } from '@vkontakte/icons';
 
 
-export const CommandItem = ({ name, id, score, removeCommand, editCommand, result }) => {
-  console.log('first', result, result === 'false')
+
+export const CommandItem = ({ name, id, score, removeCommand, editCommand, result, commandsCount }) => {
+
 
   return (
     <div className='command-card'>
@@ -24,12 +26,21 @@ export const CommandItem = ({ name, id, score, removeCommand, editCommand, resul
         }}
         defaultValue={name}
       />
-      <Button size="l"
-        disabled={(result === 'false') ? false : true}
-        onClick={() => {
-          removeCommand(id)
-        }}
-        appearance="accent" before={(result === 'false') ? <Icon16Cancel /> : score} />
+      {commandsCount <= 2 ?
+        <Button size="l"
+          disabled={(result === 'false') ? false : true}
+          appearance="accent" before={(result === 'false') ? <Icon16Cancel /> : score} />
+        :
+        <Button size="l"
+          disabled={(result === 'false') ? false : true}
+          onClick={() => {
+            removeCommand(id)
+          }}
+          appearance="accent" before={(result === 'false') ? <Icon16Cancel /> : score} />
+
+      }
+
+
     </div>
   )
 }

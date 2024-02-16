@@ -3,7 +3,7 @@ import {
   Button, PanelHeader, Tabbar, TabbarItem,
 
 } from '@vkontakte/vkui';
-import { Icon20AddCircleFill, Icon20ArrowRightOutline, } from '@vkontakte/icons';
+import { Icon12ErrorCircleFill, Icon16AddCircleFillBlue, Icon16ErrorCircle, Icon20AddCircleFill, Icon20ArrowRightOutline, Icon20Clear, Icon20ErrorCircleFillYellow, Icon24DismissSubstract, Icon24ErrorCircleFillGray, } from '@vkontakte/icons';
 import './StartPanel.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { CommandsList } from '../../components/CommandsList/CommandsList';
@@ -41,7 +41,7 @@ export const StartPanel = ({ changePanel, result }) => {
       </Button> : <Button
 
         style={{ 'width': '100%', backgroundColor: 'red' }} size='l' className='add-command-btn'>
-        <span>Невозможно добавить более 5 команд&nbsp; </span> <Icon20AddCircleFill />
+        <span>Невозможно добавить более 5 команд&nbsp; </span> <Icon20ErrorCircleFillYellow />
       </Button>}
 
       <Tabbar>

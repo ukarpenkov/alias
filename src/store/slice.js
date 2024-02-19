@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 import { wordDB } from '../data/words'
 
 const commandInitialState = [
-  { id: '1', name: 'Бельчата', score: 0, round: 1, words: wordDB },
-  { id: '2', name: 'Крольчата', score: 0, round: 1, words: wordDB }
+  { id: '1', name: 'Бельчата', score: 0, round: 1, words: [] },
+  { id: '2', name: 'Крольчата', score: 0, round: 1, words: [] }
 ]
 const gameInitialState = {
   roundTime: 10,
@@ -36,10 +36,15 @@ const gameSlice = createSlice({
     },
     chengeWordsCount(state, action) {
       state.settings.wordsToWin = action.payload
+    },
+    addWords(state, action) {
+      state.commands.map((item, index) => {
+        return item.words.push(action.payload[index])
+      })
     }
   }
 
 })
 
 export default gameSlice.reducer
-export const { addCommand, removeCommand, editCommand, changeRoundTime, chengeWordsCount } = gameSlice.actions
+export const { addCommand, removeCommand, editCommand, changeRoundTime, chengeWordsCount, addWords } = gameSlice.actions

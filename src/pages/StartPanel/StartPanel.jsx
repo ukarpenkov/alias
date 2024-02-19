@@ -7,26 +7,45 @@ import { Icon12ErrorCircleFill, Icon16AddCircleFillBlue, Icon16ErrorCircle, Icon
 import './StartPanel.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { CommandsList } from '../../components/CommandsList/CommandsList';
-import { addCommand } from '../../store/slice';
+import { addCommand, addWords } from '../../store/slice';
 import { useState } from 'react';
 
 export const StartPanel = ({ changePanel, result }) => {
 
 
   const commands = useSelector(state => state.game.commands)
+  const words = useSelector(state => state.game.words)
   const [commandsCount, setCommandsCount] = useState(commands.length)
 
   const dispatch = useDispatch()
-  const addNewCommnadWithWords = () => {
 
+  const setWordsToCommands = () => {
+
+    console.log(commandsCount + 1)
+    let array = words; //массив, можно использовать массив объектов
+    let size = words.length / (commandsCount + 1); //размер подмассива
+    let subarray = []; //массив в который будет выведен результат.
+    for (let i = 0; i < Math.ceil(array.length / size); i++) {
+      subarray[i] = array.slice((i * size), (i * size) + size);
+    }
+    dispatch(addWords({
+      subarray
+    }))
+  }
+  const addNewCommnadWithWords = () => {
     dispatch(addCommand({
       id: Date.now(), name: 'Команда без названия', score: 0, round: 1,
       words: ['1', '2']
     }))
     setCommandsCount(commandsCount + 1)
+    setWordsToCommands()
 
+    console.log(commands)
   }
-  console.log(commandsCount)
+
+
+
+
   return (
 
     <>

@@ -10,7 +10,8 @@ import { changeRoundTime, chengeWordsCount } from '../../store/slice';
 
 export const GameSettings = ({ changePanel }) => {
   const settings = useSelector(state => state.game.settings)
-  console.log(settings)
+  const clgState = useSelector(state => state.game)
+  console.log(clgState)
   const dispatch = useDispatch()
 
 

@@ -8,6 +8,9 @@ import { useSelector } from 'react-redux'
 
 export const ComandsRating = ({ changePanel, result }) => {
   const round = useSelector(state => state.game.settings.currentRound)
+  const clgState = useSelector(state => state.game)
+  console.log(clgState)
+
   const commandsList = useSelector(state => [...state.game.commands].map(item => item.name))
 
   return (

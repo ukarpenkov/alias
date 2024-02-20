@@ -19,17 +19,16 @@ export const StartPanel = ({ changePanel, result }) => {
   console.log(commands)
   const dispatch = useDispatch()
 
-  const setWordsToCommands = (data) => {
-    let array = data; //массив, можно использовать массив объектов
-    let size = data.length / (commandsCount + 1); //размер подмассива
-    let subarray = []; //массив в который будет выведен результат.
+  const setWordsToCommands = () => {
+    let array = words
+    let size = words.length / (commandsCount + 1)
+    let subarray = []
     for (let i = 0; i < Math.ceil(array.length / size); i++) {
       subarray[i] = array.slice((i * size), (i * size) + size);
     }
     dispatch(addWords({
       words: subarray
     }))
-
   }
   const addNewCommnadWithWords = () => {
     dispatch(addCommand({
@@ -37,9 +36,7 @@ export const StartPanel = ({ changePanel, result }) => {
       words: []
     }))
     setCommandsCount(commandsCount + 1)
-    setWordsToCommands(words)
-
-    console.log(commands)
+    setWordsToCommands()
   }
 
 
@@ -51,7 +48,7 @@ export const StartPanel = ({ changePanel, result }) => {
       <PanelHeader
       >Команды</PanelHeader>
 
-      <CommandsList result={result} setCommandsCount={setCommandsCount} commandsCount={commandsCount} setWordsToCommands={setWordsToCommands} />
+      <CommandsList result={result} setCommandsCount={setCommandsCount} commandsCount={commandsCount} />
       {commandsCount <= 4 ? <Button
         onClick={() => addNewCommnadWithWords()}
         style={{ 'width': '100%', marginTop: '10px' }} size='l' className='add-command-btn'>

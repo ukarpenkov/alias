@@ -16,29 +16,28 @@ export const StartPanel = ({ changePanel, result }) => {
   const commands = useSelector(state => state.game.commands)
   const words = useSelector(state => state.game.words)
   const [commandsCount, setCommandsCount] = useState(commands.length)
-
+  console.log(commands)
   const dispatch = useDispatch()
 
-  const setWordsToCommands = () => {
-
-    console.log(commandsCount + 1)
-    let array = words; //массив, можно использовать массив объектов
-    let size = words.length / (commandsCount + 1); //размер подмассива
+  const setWordsToCommands = (data) => {
+    let array = data; //массив, можно использовать массив объектов
+    let size = data.length / (commandsCount + 1); //размер подмассива
     let subarray = []; //массив в который будет выведен результат.
     for (let i = 0; i < Math.ceil(array.length / size); i++) {
       subarray[i] = array.slice((i * size), (i * size) + size);
     }
     dispatch(addWords({
-      subarray
+      words: subarray
     }))
+
   }
   const addNewCommnadWithWords = () => {
     dispatch(addCommand({
       id: Date.now(), name: 'Команда без названия', score: 0, round: 1,
-      words: ['1', '2']
+      words: []
     }))
     setCommandsCount(commandsCount + 1)
-    setWordsToCommands()
+    setWordsToCommands(words)
 
     console.log(commands)
   }
@@ -52,7 +51,7 @@ export const StartPanel = ({ changePanel, result }) => {
       <PanelHeader
       >Команды</PanelHeader>
 
-      <CommandsList result={result} setCommandsCount={setCommandsCount} commandsCount={commandsCount} />
+      <CommandsList result={result} setCommandsCount={setCommandsCount} commandsCount={commandsCount} setWordsToCommands={setWordsToCommands} />
       {commandsCount <= 4 ? <Button
         onClick={() => addNewCommnadWithWords()}
         style={{ 'width': '100%', marginTop: '10px' }} size='l' className='add-command-btn'>

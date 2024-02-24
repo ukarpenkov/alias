@@ -45,19 +45,7 @@ export const WordCard = ({ changePanel }) => {
         </div>
       </div>
       <div className='wordcard-container'>
-        <Group>
-          {/* <ModalCardBase
-            dismissButtonMode='undefined'
-            style={{ width: 320 }}
-            actions={
-              <ButtonGroup mode="horizontal" gap="s" stretched> */}
-          <Button size="l" mode="primary" stretched className='round-timer'>
-            <Timer />
-          </Button>
-          {/* </ButtonGroup>
-            }
-          /> */}
-        </Group>
+        <h1> <Timer /></h1>
       </div>
       <Tabbar>
         <TabbarItem

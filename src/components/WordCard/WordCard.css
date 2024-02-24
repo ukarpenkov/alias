@@ -1,13 +1,20 @@
 .wordcard-container {
   display: grid;
+  margin-top: 60px;
 }
 
 .current-result {
-  display: flex;
+  display: grid;
   margin-top: 25px;
   justify-content: space-around;
+  grid-gap: 10px;
 }
 
 .current-result-wrapper {
   display: grid;
+}
+
+.round-timer {
+  background-color: #19191a !important;
+  color: aqua;
 }

@@ -33,31 +33,30 @@ export const WordCard = ({ changePanel }) => {
           />
 
         </Group>
-        <div className='current-result-wrapper'>
+        <div className='current-result-wrapper '>
           <div className='current-result'>
-            <Button size="m" after={<Counter color='white' mode='primary'>8</Counter>} style={{ backgroundColor: 'red' }}>
-              Пропущено
-            </Button>
             <Button size="m" after={<Counter>20</Counter>}>
               Отгадано
+            </Button>
+            <Button size="m" after={<Counter color='white' mode='primary'>8</Counter>} style={{ backgroundColor: 'red' }}>
+              Пропущено
             </Button>
           </div >
         </div>
       </div>
       <div className='wordcard-container'>
         <Group>
-          <ModalCardBase
+          {/* <ModalCardBase
             dismissButtonMode='undefined'
             style={{ width: 320 }}
-
             actions={
-              <ButtonGroup mode="horizontal" gap="s" stretched>
-                <Button size="l" mode="primary" stretched>
-                  <Timer />
-                </Button>
-              </ButtonGroup>
+              <ButtonGroup mode="horizontal" gap="s" stretched> */}
+          <Button size="l" mode="primary" stretched className='round-timer'>
+            <Timer />
+          </Button>
+          {/* </ButtonGroup>
             }
-          />
+          /> */}
         </Group>
       </div>
       <Tabbar>

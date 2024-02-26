@@ -5,8 +5,8 @@ const intialWords1 = wordDB.slice(0, wordDB.length / 2)
 const intialWords2 = wordDB.slice(wordDB.length / 2)
 
 const commandInitialState = [
-  { id: '1', name: 'Бельчата', score: 0, round: 1, words: intialWords1 },
-  { id: '2', name: 'Крольчата', score: 0, round: 1, words: intialWords2 }
+  { id: '1', name: 'Бельчата', score: 0, round: [{ guessedWords: [], notGuessedWords: [] }], words: intialWords1 },
+  { id: '2', name: 'Крольчата', score: 0, round: [{ guessedWords: [], notGuessedWords: [] }], words: intialWords2 }
 ]
 const gameInitialState = {
   roundTime: 10,
@@ -46,10 +46,19 @@ const gameSlice = createSlice({
         item.words = []
         return item.words.push(...action.payload.words[index])
       })
+    },
+    addGuessedWord(state, action) {
+      let updatedState = [...state.commands]
+      let index = updatedState.findIndex(item => item.id === action.payload.id)
+      updatedState[index].round = action.payload.round
+      state.commands = updatedState
+    },
+    addNotGuessedWord(state, action) {
+
     }
   }
 
 })
 
 export default gameSlice.reducer
-export const { addCommand, removeCommand, editCommand, changeRoundTime, chengeWordsCount, addWords } = gameSlice.actions
+export const { addCommand, removeCommand, editCommand, changeRoundTime, chengeWordsCount, addWords, addGuessedWord, addNotGuessedWord } = gameSlice.actions

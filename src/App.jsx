@@ -10,6 +10,7 @@ import { Rules } from "./pages/Rules/Rules";
 import { useState } from "react";
 import { ComandsRating } from "./components/ComandsRating/ComandsRating";
 import { wordDB } from "./data/words";
+import { WordsEdit } from "./pages/WordsEdit/WordsEdit";
 
 
 function App() {
@@ -41,6 +42,9 @@ function App() {
           </Panel>
           <Panel id='word-card'>
             <WordCard changePanel={changePanel} />
+          </Panel>
+          <Panel id='words-edit'>
+            <WordsEdit changePanel={changePanel} />
           </Panel>
           <Panel id='result'>
             <Result changePanel={changePanel} />

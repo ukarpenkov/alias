@@ -50,7 +50,7 @@ export const WordCard = ({ changePanel }) => {
       <Tabbar>
         <TabbarItem
           text="Далее"
-          onClick={() => changePanel('result')}
+          onClick={() => changePanel('words-edit')}
         >
           <Icon20ArrowRightOutline />
         </TabbarItem>

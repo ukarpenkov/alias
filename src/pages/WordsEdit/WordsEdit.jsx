@@ -5,7 +5,7 @@ import {
 import { Icon20ChevronRight2, Icon20ThumbsUpOutline } from '@vkontakte/icons';
 
 
-export const WordsEdit = () => {
+export const WordsEdit = ({ changePanel }) => {
   return (
     <View activePanel="wordsEdit">
       <Panel id='wordsEdit'>
@@ -34,6 +34,7 @@ export const WordsEdit = () => {
         <Tabbar>
           <TabbarItem
             text="Продолжить"
+            onClick={() => changePanel('commands-rating')}
           >
             <Icon20ChevronRight2 />
           </TabbarItem>

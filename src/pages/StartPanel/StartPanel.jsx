@@ -33,7 +33,8 @@ export const StartPanel = ({ changePanel, result }) => {
   const addNewCommnadWithWords = () => {
     dispatch(addCommand({
       id: Date.now(), name: 'Команда без названия', score: 0, round: 1,
-      words: []
+      words: [],
+      isActive: false
     }))
     setCommandsCount(commandsCount + 1)
     setWordsToCommands()

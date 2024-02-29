@@ -5,8 +5,18 @@ const intialWords1 = wordDB.slice(0, wordDB.length / 2)
 const intialWords2 = wordDB.slice(wordDB.length / 2)
 
 const commandInitialState = [
-  { id: '1', name: 'Бельчата', score: 0, round: [{ guessedWords: [], notGuessedWords: [] }], words: intialWords1 },
-  { id: '2', name: 'Крольчата', score: 0, round: [{ guessedWords: [], notGuessedWords: [] }], words: intialWords2 }
+  {
+    id: '1', name: 'Бельчата', score: 0,
+    round: [{ number: 1, guessedWords: [], notGuessedWords: [] }],
+    words: intialWords1,
+    isActive: true
+  },
+  {
+    id: '2', name: 'Крольчата', score: 0,
+    round: [{ number: 1, guessedWords: [], notGuessedWords: [] }],
+    words: intialWords2,
+    isActive: false
+  }
 ]
 const gameInitialState = {
   roundTime: 10,
@@ -50,8 +60,8 @@ const gameSlice = createSlice({
     addGuessedWord(state, action) {
       let updatedState = [...state.commands]
       let index = updatedState.findIndex(item => item.id === action.payload.id)
-      updatedState[index].round = action.payload.round
-      state.commands = updatedState
+      let currentCommand = updatedState.commands[index]
+      console.log('команда', currentCommand)
     },
     addNotGuessedWord(state, action) {
 

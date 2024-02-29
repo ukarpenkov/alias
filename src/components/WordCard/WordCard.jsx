@@ -5,10 +5,18 @@ import {
 import { Icon20ArrowRightOutline, Icon20CancelCircleFillRed, Icon20CheckCircleOn } from '@vkontakte/icons';
 import { Timer } from '../Timer/Timer';
 import './WordCard.css'
+import { addGuessedWord } from '../../store/slice';
+import { useDispatch, useSelector } from 'react-redux'
+
 
 export const WordCard = ({ changePanel }) => {
+  const dispatch = useDispatch()
+  const setGuessedWord = () => {
+    dispatch(addGuessedWord({
+      // id: написать айди активно команды
+    }))
+  }
   return (
-
     <>
       <PanelHeader>Раунд {1}</PanelHeader>
       <div className='wordcard-container'>
@@ -24,7 +32,8 @@ export const WordCard = ({ changePanel }) => {
                   <Icon20CancelCircleFillRed width={20} height={20} />
                   пропуск
                 </Button>
-                <Button size="l" mode="primary" stretched>
+                <Button size="l" mode="primary" stretched
+                  onClick={() => setGuessedWord()}>
                   <Icon20CheckCircleOn width={20} height={20} color='green' />
                   отгадано
                 </Button>

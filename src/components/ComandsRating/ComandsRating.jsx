@@ -11,7 +11,9 @@ export const ComandsRating = ({ changePanel, result }) => {
   const clgState = useSelector(state => state.game)
   console.log(clgState)
 
-  const commandsList = useSelector(state => [...state.game.commands].map(item => item.name))
+  const commands = useSelector(state => state.game.commands)
+  let activeCommandIndex = commands.findIndex(commnad => commnad.isActive === true)
+  let currentCommand = commands[activeCommandIndex].name
 
   return (
     <>
@@ -22,7 +24,7 @@ export const ComandsRating = ({ changePanel, result }) => {
         <Placeholder
           icon={<Icon16Cards2 />}
           header={`Раунд ${1}`}
-          action={<Button size="m">Команда {round}</Button>}
+          action={<Button size="m">{currentCommand}</Button>}
         >
           Готовимся к игре
         </Placeholder>

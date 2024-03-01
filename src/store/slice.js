@@ -9,13 +9,13 @@ const commandInitialState = [
     id: '1', name: 'Бельчата', score: 0,
     round: [{ number: 1, guessedWords: [], notGuessedWords: [] }],
     words: intialWords1,
-    isActive: true
+    isActive: false
   },
   {
     id: '2', name: 'Крольчата', score: 0,
     round: [{ number: 1, guessedWords: [], notGuessedWords: [] }],
     words: intialWords2,
-    isActive: false
+    isActive: true
   }
 ]
 const gameInitialState = {
@@ -65,10 +65,26 @@ const gameSlice = createSlice({
     },
     addNotGuessedWord(state, action) {
 
+    },
+    setActiveCommand(state) {
+      let updatedState = [...state.commands]
+      let activeCommandIndex = updatedState.findIndex(commnad => commnad.isActive === true)
+      if (activeCommandIndex === -1) {
+        updatedState[0].isActive = true
+      }
+      else if (activeCommandIndex >= updatedState.length) {
+        updatedState[0].isActive = true
+      }
+      else {
+        updatedState[activeCommandIndex].isActive = false
+        updatedState[activeCommandIndex + 1].isActive = true
+      }
+      state.commands = updatedState
     }
+
   }
 
 })
 
 export default gameSlice.reducer
-export const { addCommand, removeCommand, editCommand, changeRoundTime, chengeWordsCount, addWords, addGuessedWord, addNotGuessedWord } = gameSlice.actions
+export const { addCommand, removeCommand, editCommand, changeRoundTime, chengeWordsCount, addWords, addGuessedWord, addNotGuessedWord, setActiveCommand } = gameSlice.actions

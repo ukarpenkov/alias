@@ -7,7 +7,7 @@ import { Icon12ErrorCircleFill, Icon16AddCircleFillBlue, Icon16ErrorCircle, Icon
 import './StartPanel.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { CommandsList } from '../../components/CommandsList/CommandsList';
-import { addCommand, addWords } from '../../store/slice';
+import { addCommand, addWords, setActiveCommand } from '../../store/slice';
 import { useState } from 'react';
 
 export const StartPanel = ({ changePanel, result }) => {
@@ -16,7 +16,6 @@ export const StartPanel = ({ changePanel, result }) => {
   const commands = useSelector(state => state.game.commands)
   const words = useSelector(state => state.game.words)
   const [commandsCount, setCommandsCount] = useState(commands.length)
-  console.log(commands)
   const dispatch = useDispatch()
 
   const setWordsToCommands = () => {
@@ -40,6 +39,11 @@ export const StartPanel = ({ changePanel, result }) => {
     setWordsToCommands()
   }
 
+  const setActiveCommandWithRoute = () => {
+    dispatch(setActiveCommand())
+    changePanel('settings')
+  }
+
 
 
 
@@ -61,7 +65,7 @@ export const StartPanel = ({ changePanel, result }) => {
 
       <Tabbar>
         <TabbarItem
-          onClick={() => changePanel('settings')}
+          onClick={() => setActiveCommandWithRoute()}
           text="Далее"
         >
           <Icon20ArrowRightOutline />

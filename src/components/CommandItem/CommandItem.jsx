@@ -19,7 +19,6 @@ export const CommandItem = ({ name, id, score, removeCommand, editCommand, resul
           e.target.value = ''
         }}
         onChange={(e) => {
-
           let newName = e.target.value
           editCommand({ name: newName, id })
 

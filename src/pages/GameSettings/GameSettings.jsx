@@ -5,7 +5,7 @@ import {
 import { Icon20ArrowRightOutline } from '@vkontakte/icons';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { changeRoundTime, chengeWordsCount } from '../../store/slice';
+import { changeRoundTime, changeWordsCount } from '../../store/slice';
 
 
 export const GameSettings = ({ changePanel }) => {
@@ -20,14 +20,14 @@ export const GameSettings = ({ changePanel }) => {
   const [roundTime, setRoundTime] = useState(settings.roundTime)
 
   const changeWordsCountHandler = (e) => {
-    dispatch(chengeWordsCount(Number(e.target.value)))
+    dispatch(changeWordsCount(Number(e.target.value)))
     setWordsCount(Number(e.target.value))
     debugger
     console.log(settings.wordsToWin)
   }
 
   useEffect(() => {
-    dispatch(chengeWordsCount(Number(wordsCount)))
+    dispatch(changeWordsCount(Number(wordsCount)))
   }, [wordsCount])
   useEffect(() => {
     dispatch(changeRoundTime(Number(roundTime)))

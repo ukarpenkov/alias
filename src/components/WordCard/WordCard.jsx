@@ -11,10 +11,16 @@ import { useDispatch, useSelector } from 'react-redux'
 
 export const WordCard = ({ changePanel }) => {
   const dispatch = useDispatch()
+  const commands = useSelector(state => state.game.commands)
   const setGuessedWord = () => {
+    let id = commands.findIndex(item => item.isActive === true)
+    console.log(id)
+
+
     dispatch(addGuessedWord({
-      // id: написать айди активно команды
+      id
     }))
+    console.log(commands)
   }
   return (
     <>

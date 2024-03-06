@@ -13,15 +13,15 @@ export const WordCard = ({ changePanel }) => {
   const dispatch = useDispatch()
   const commands = useSelector(state => state.game.commands)
   const setGuessedWord = () => {
-    let id = commands.findIndex(item => item.isActive === true)
-    console.log(id)
-
-
-    dispatch(addGuessedWord({
-      id
-    }))
     console.log(commands)
+    dispatch(addGuessedWord({}))
   }
+  let currentCommandIndex = commands.findIndex(item => item.isActive === true)
+  let currentWord = commands[currentCommandIndex].words[0]
+  let guessedWordsCount = commands[currentCommandIndex].round[0].guessedWords.length
+  let letnotGuessedWordsCount = commands[currentCommandIndex].round[0].notGuessedWords.length
+
+
   return (
     <>
       <PanelHeader>Раунд {1}</PanelHeader>
@@ -31,7 +31,7 @@ export const WordCard = ({ changePanel }) => {
           <ModalCardBase
             dismissButtonMode='undefined'
             style={{ width: 320 }}
-            header="Заноза"
+            header={currentWord}
             actions={
               <ButtonGroup mode="horizontal" gap="s" stretched>
                 <Button size="l" mode="primary" stretched>
@@ -50,10 +50,10 @@ export const WordCard = ({ changePanel }) => {
         </Group>
         <div className='current-result-wrapper '>
           <div className='current-result'>
-            <Button size="m" after={<Counter>20</Counter>}>
+            <Button size="m" after={<Counter>{guessedWordsCount}</Counter>}>
               Отгадано
             </Button>
-            <Button size="m" after={<Counter color='white' mode='primary'>8</Counter>} style={{ backgroundColor: 'red' }}>
+            <Button size="m" after={<Counter color='white' mode='primary'>{letnotGuessedWordsCount}</Counter>} style={{ backgroundColor: 'red' }}>
               Пропущено
             </Button>
           </div >

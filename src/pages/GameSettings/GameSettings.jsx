@@ -12,7 +12,6 @@ export const GameSettings = ({ changePanel }) => {
   const settings = useSelector(state => state.game.settings)
   const clgState = useSelector(state => state.game)
   const commands = useSelector(state => state.game.commands)
-  console.log(commands)
   const dispatch = useDispatch()
 
 
@@ -22,8 +21,6 @@ export const GameSettings = ({ changePanel }) => {
   const changeWordsCountHandler = (e) => {
     dispatch(changeWordsCount(Number(e.target.value)))
     setWordsCount(Number(e.target.value))
-    debugger
-    console.log(settings.wordsToWin)
   }
 
   useEffect(() => {

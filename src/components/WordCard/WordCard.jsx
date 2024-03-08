@@ -5,7 +5,7 @@ import {
 import { Icon20ArrowRightOutline, Icon20CancelCircleFillRed, Icon20CheckCircleOn } from '@vkontakte/icons';
 import { Timer } from '../Timer/Timer';
 import './WordCard.css'
-import { addGuessedWord } from '../../store/slice';
+import { addGuessedWord, addNotGuessedWord } from '../../store/slice';
 import { useDispatch, useSelector } from 'react-redux'
 
 
@@ -13,18 +13,26 @@ export const WordCard = ({ changePanel }) => {
   const dispatch = useDispatch()
   const commands = useSelector(state => state.game.commands)
   const setGuessedWord = () => {
-    console.log(commands)
     dispatch(addGuessedWord({}))
+  }
+  const setNotGuessedWord = () => {
+    dispatch(addNotGuessedWord({}))
+    console.log(commands)
   }
   let currentCommandIndex = commands.findIndex(item => item.isActive === true)
   let currentWord = commands[currentCommandIndex].words[0]
-  let guessedWordsCount = commands[currentCommandIndex].round[0].guessedWords.length
-  let letnotGuessedWordsCount = commands[currentCommandIndex].round[0].notGuessedWords.length
+  let guessedWordsCount = commands[currentCommandIndex]
+    .round[(commands[currentCommandIndex].round.length) - 1]
+    .guessedWords.length
+  let notGuessedWordsCount = commands[currentCommandIndex]
+    .round[(commands[currentCommandIndex].round.length) - 1]
+    .notGuessedWords.length
 
 
   return (
     <>
-      <PanelHeader>Раунд {1}</PanelHeader>
+      <PanelHeader>Раунд {commands[currentCommandIndex]
+        .round[commands[currentCommandIndex].round.length - 1].number}</PanelHeader>
       <div className='wordcard-container'>
         <Group>
 
@@ -34,7 +42,8 @@ export const WordCard = ({ changePanel }) => {
             header={currentWord}
             actions={
               <ButtonGroup mode="horizontal" gap="s" stretched>
-                <Button size="l" mode="primary" stretched>
+                <Button size="l" mode="primary" stretched
+                  onClick={() => setNotGuessedWord()}>
                   <Icon20CancelCircleFillRed width={20} height={20} />
                   пропуск
                 </Button>
@@ -53,7 +62,7 @@ export const WordCard = ({ changePanel }) => {
             <Button size="m" after={<Counter>{guessedWordsCount}</Counter>}>
               Отгадано
             </Button>
-            <Button size="m" after={<Counter color='white' mode='primary'>{letnotGuessedWordsCount}</Counter>} style={{ backgroundColor: 'red' }}>
+            <Button size="m" after={<Counter color='white' mode='primary'>{notGuessedWordsCount}</Counter>} style={{ backgroundColor: 'red' }}>
               Пропущено
             </Button>
           </div >

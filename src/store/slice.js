@@ -34,9 +34,11 @@ const gameSlice = createSlice({
   reducers: {
     addCommand(state, action) {
       state.commands.push(action.payload)
+      return state
     },
     removeCommand(state, action) {
       state.commands = state.commands.filter((item) => item.id !== action.payload)
+      return state
     },
     editCommand(state, action) {
       let updatedState = [...state.commands]
@@ -60,15 +62,20 @@ const gameSlice = createSlice({
     addGuessedWord(state, action) {
       let updatedState = [...state.commands]
       let index = updatedState.findIndex(item => item.isActive === true)
-      console.log(index)
       let word = updatedState[index].words.shift()
-      console.log(word)
-      updatedState[index].round[0].guessedWords.push(word)
+      let rounds = updatedState[index].round
+      rounds[rounds.length - 1].guessedWords.push(word)
       state.commands = updatedState
       return state
     },
     addNotGuessedWord(state, action) {
-
+      let updatedState = [...state.commands]
+      let index = updatedState.findIndex(item => item.isActive === true)
+      let word = updatedState[index].words.shift()
+      let rounds = updatedState[index].round
+      rounds[rounds.length - 1].notGuessedWords.push(word)
+      state.commands = updatedState
+      return state
     },
     setActiveCommand(state) {
       let updatedState = [...state.commands]

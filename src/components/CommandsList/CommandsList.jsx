@@ -29,8 +29,7 @@ export const CommandsList = ({ result, setCommandsCount, commandsCount, setWords
   const handleEditCommand = (name, id) => {
     dispatch(editCommand(name, id))
   }
-
-
+  console.log(commands)
   return <>
     {commands.map((item) => <CommandItem key={item.id} {...item} removeCommand={handleRemoveCommand} editCommand={handleEditCommand} result={result}
       commandsCount={commandsCount}

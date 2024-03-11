@@ -15,13 +15,14 @@ export const CommandItem = ({ name, id, score, removeCommand, editCommand, resul
       <Input
         style={{ 'width': '100%' }}
         type="text"
+        disabled={(result === 'false') ? false : true}
         onFocus={(e) => {
           e.target.value = ''
         }}
         onChange={(e) => {
           let newName = e.target.value
-          editCommand({ name: newName, id })
-
+          editCommand({ name: newName, id: id })
+          console.log(id)
         }}
         defaultValue={name}
       />

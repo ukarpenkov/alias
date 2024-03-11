@@ -5,7 +5,6 @@ export const CurrentInfo = () => {
   return (
     <div>
       <ComandsRating />
-
     </div>
   )
 }

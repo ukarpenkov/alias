@@ -8,7 +8,7 @@ import './StartPanel.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { CommandsList } from '../../components/CommandsList/CommandsList';
 import { addCommand, addWords, setActiveCommand } from '../../store/slice';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const StartPanel = ({ changePanel, result }) => {
 
@@ -20,7 +20,7 @@ export const StartPanel = ({ changePanel, result }) => {
 
   const setWordsToCommands = () => {
     let array = words
-    let size = words.length / (commandsCount + 1)
+    let size = words.length / Number((commandsCount + 1))
     let subarray = []
     for (let i = 0; i < Math.ceil(array.length / size); i++) {
       subarray[i] = array.slice((i * size), (i * size) + size);
@@ -29,12 +29,15 @@ export const StartPanel = ({ changePanel, result }) => {
       words: subarray
     }))
   }
+
   const addNewCommnadWithWords = () => {
     dispatch(addCommand({
-      id: Date.now(), name: 'Команда без названия', score: 0, round: 1,
+      id: Date.now().toString(), name: 'Команда без названия', score: 0, round: [{ number: 1, guessedWords: [], notGuessedWords: [] }],
       words: [],
       isActive: false
     }))
+    console.log(commands)
+
     setCommandsCount(commandsCount + 1)
     setWordsToCommands()
   }
@@ -44,15 +47,10 @@ export const StartPanel = ({ changePanel, result }) => {
     changePanel('settings')
   }
 
-
-
-
   return (
-
     <>
       <PanelHeader
       >Команды</PanelHeader>
-
       <CommandsList result={result} setCommandsCount={setCommandsCount} commandsCount={commandsCount} />
       {commandsCount <= 4 ? <Button
         onClick={() => addNewCommnadWithWords()}

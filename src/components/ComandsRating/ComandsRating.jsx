@@ -7,10 +7,6 @@ import { CommandsList } from '../CommandsList/CommandsList';
 import { useSelector } from 'react-redux'
 
 export const ComandsRating = ({ changePanel, result }) => {
-  const round = useSelector(state => state.game.settings.currentRound)
-  const clgState = useSelector(state => state.game)
-
-
   const commands = useSelector(state => state.game.commands)
   let activeCommandIndex = commands.findIndex(commnad => commnad.isActive === true)
   let currentCommand = commands[activeCommandIndex].name

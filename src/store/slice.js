@@ -34,30 +34,32 @@ const gameSlice = createSlice({
   reducers: {
     addCommand(state, action) {
       state.commands.push(action.payload)
-      return state
     },
     removeCommand(state, action) {
       state.commands = state.commands.filter((item) => item.id !== action.payload)
-      return state
+      // return state
     },
     editCommand(state, action) {
       let updatedState = [...state.commands]
-      let index = updatedState.findIndex(item => item.id !== action.payload)
+      let index = updatedState.findIndex(item => item.id === action.payload.id)
+      console.log(index)
       updatedState[index].name = action.payload.name
-      state.commands = updatedState
-      return state
     },
     changeRoundTime(state, action) {
       state.settings.roundTime = action.payload
+      // return state
     },
     changeWordsCount(state, action) {
       state.settings.wordsToWin = action.payload
+      // return state
     },
     addWords(state, action) {
       state.commands.map((item, index) => {
         item.words = []
         return item.words.push(...action.payload.words[index])
       })
+
+
     },
     addGuessedWord(state, action) {
       let updatedState = [...state.commands]

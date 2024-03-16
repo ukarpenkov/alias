@@ -58,8 +58,6 @@ const gameSlice = createSlice({
         item.words = []
         return item.words.push(...action.payload.words[index])
       })
-
-
     },
     addGuessedWord(state, action) {
       let updatedState = [...state.commands]
@@ -94,11 +92,13 @@ const gameSlice = createSlice({
       }
       state.commands = updatedState
       return state
+    },
+    changeWordInState(state, action) {
+      let updatedState = [...state.commands]
+      let index = updatedState.findIndex(item => item.isActive === true)
     }
-
   }
-
 })
 
 export default gameSlice.reducer
-export const { addCommand, removeCommand, editCommand, changeRoundTime, changeWordsCount, addWords, addGuessedWord, addNotGuessedWord, setActiveCommand } = gameSlice.actions
+export const { addCommand, removeCommand, editCommand, changeRoundTime, changeWordsCount, addWords, addGuessedWord, addNotGuessedWord, setActiveCommand, changeWordInState } = gameSlice.actions

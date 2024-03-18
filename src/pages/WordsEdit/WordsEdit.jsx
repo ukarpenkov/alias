@@ -5,7 +5,7 @@ import {
 import { Icon20ChevronRight2, Icon20ThumbsDownOutline, Icon20ThumbsUp, Icon20ThumbsUpOutline } from '@vkontakte/icons';
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react';
-import { changeGuessedWordsFunc } from '../../store/slice';
+import { changeGuessedWordsFunc, changeNotGuessedWordsFunc } from '../../store/slice';
 
 export const WordsEdit = ({ changePanel }) => {
   const commands = useSelector(state => state.game.commands)
@@ -15,15 +15,20 @@ export const WordsEdit = ({ changePanel }) => {
   let notGuessedWords = currentCommand.round[currentCommand.round.length - 1].notGuessedWords
   const dispatch = useDispatch()
 
-  console.log(commands)
+  console.log('comp', commands)
   const changeGuessedWords = (word) => {
-
     dispatch(changeGuessedWordsFunc({
       word: word
     }))
-    console.log(commands)
+    console.log('bad', commands)
   }
-  // let words = guessedWords.concat(notGuessedWords)
+  const changeNotGuessedWords = (word) => {
+    dispatch(changeNotGuessedWordsFunc({
+      word: word
+    }))
+    console.log('good', commands)
+  }
+
   return (
     <View activePanel="wordsEdit">
       <Panel id='wordsEdit'>
@@ -31,7 +36,7 @@ export const WordsEdit = ({ changePanel }) => {
         >Очки раунда</PanelHeader>
         {
           guessedWords.map(word => {
-            return <div className='command-card'>
+            return <div className='command-card' key={word}>
               <Input
                 disabled
                 style={{ 'width': '100%' }}
@@ -41,21 +46,22 @@ export const WordsEdit = ({ changePanel }) => {
               <Button size="l" appearance="accent"
                 onClick={() => changeGuessedWords(word)}
                 before={
-                  guessedWords.indexOf(word) !== -1 ?
-                    <Icon20ThumbsUp /> : <Icon20ThumbsDownOutline />} />
+                  <Icon20ThumbsUp />} />
             </div>
           })
         }
         {
           notGuessedWords.map(word => {
-            return <div className='command-card'>
+            return <div className='command-card' key={word}>
               <Input
                 disabled
                 style={{ 'width': '100%' }}
                 type="text"
                 defaultValue={word}
               />
-              <Button size="l" appearance="accent" before={<Icon20ThumbsUpOutline />} />
+              <Button size="l" appearance="accent"
+                onClick={() => changeNotGuessedWords(word)}
+                before={<Icon20ThumbsUpOutline />} />
             </div>
           })
         }

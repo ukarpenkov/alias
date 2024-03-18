@@ -112,7 +112,7 @@ const gameSlice = createSlice({
       let wordIndex = currentRoundNotGuessedWords.indexOf(action.payload.word)
       console.log(wordIndex)
       currentRoundNotGuessedWords.splice(wordIndex, 1)
-      rounds[rounds.length - 1].guessedWords.push(action.payload.word)
+      rounds[rounds.length - 1].guessedWords.unshift(action.payload.word)
       state.commands = updatedState
     }
   }

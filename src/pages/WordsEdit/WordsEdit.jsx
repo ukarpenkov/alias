@@ -5,7 +5,7 @@ import {
 import { Icon20ChevronRight2, Icon20ThumbsDownOutline, Icon20ThumbsUp, Icon20ThumbsUpOutline } from '@vkontakte/icons';
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react';
-import { changeGuessedWordsFunc, changeNotGuessedWordsFunc } from '../../store/slice';
+import { addNetxRound, changeGuessedWordsFunc, changeNotGuessedWordsFunc, setActiveCommand } from '../../store/slice';
 
 export const WordsEdit = ({ changePanel }) => {
   const commands = useSelector(state => state.game.commands)
@@ -29,6 +29,12 @@ export const WordsEdit = ({ changePanel }) => {
     console.log('good', commands)
   }
 
+  const setNextCommand = () => {
+    dispatch(addNetxRound())
+    dispatch(setActiveCommand())
+    changePanel('commands-rating')
+  }
+
   return (
     <View activePanel="wordsEdit">
       <Panel id='wordsEdit'>
@@ -36,7 +42,7 @@ export const WordsEdit = ({ changePanel }) => {
         >Очки раунда</PanelHeader>
         {
           guessedWords.map(word => {
-            return <div className='command-card' key={word}>
+            return <div className='command-card' key={word + 1}>
               <Input
                 disabled
                 style={{ 'width': '100%' }}
@@ -70,7 +76,7 @@ export const WordsEdit = ({ changePanel }) => {
         <Tabbar>
           <TabbarItem
             text="Продолжить"
-            onClick={() => changePanel('commands-rating')}
+            onClick={() => setNextCommand()}
           >
             <Icon20ChevronRight2 />
           </TabbarItem>

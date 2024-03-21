@@ -35,7 +35,6 @@ export const WordCard = ({ changePanel }) => {
         .round[commands[currentCommandIndex].round.length - 1].number}</PanelHeader>
       <div className='wordcard-container'>
         <Group>
-
           <ModalCardBase
             dismissButtonMode='undefined'
             style={{ width: 320 }}

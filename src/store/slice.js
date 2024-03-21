@@ -99,7 +99,6 @@ const gameSlice = createSlice({
       let rounds = updatedState[index].round
       let currentRoundGuessedWords = rounds[rounds.length - 1].guessedWords
       let wordIndex = currentRoundGuessedWords.indexOf(action.payload.word)
-      console.log(wordIndex)
       currentRoundGuessedWords.splice(wordIndex, 1)
       rounds[rounds.length - 1].notGuessedWords.push(action.payload.word)
       state.commands = updatedState
@@ -114,9 +113,18 @@ const gameSlice = createSlice({
       currentRoundNotGuessedWords.splice(wordIndex, 1)
       rounds[rounds.length - 1].guessedWords.unshift(action.payload.word)
       state.commands = updatedState
+    },
+    addNetxRound(state) {
+      let updatedState = [...state.commands]
+      let index = updatedState.findIndex(item => item.isActive === true)
+      let rounds = updatedState[index].round
+      let currentRoundValue = rounds[rounds.length - 1].number
+      let nextRoundData = { number: (currentRoundValue + 1), guessedWords: [], notGuessedWords: [] }
+      updatedState[index].round.push(nextRoundData)
+      state.commands = updatedState
     }
   }
 })
 
 export default gameSlice.reducer
-export const { addCommand, removeCommand, editCommand, changeRoundTime, changeWordsCount, addWords, addGuessedWord, addNotGuessedWord, setActiveCommand, changeGuessedWordsFunc, changeNotGuessedWordsFunc } = gameSlice.actions
+export const { addCommand, removeCommand, editCommand, changeRoundTime, changeWordsCount, addWords, addGuessedWord, addNotGuessedWord, setActiveCommand, changeGuessedWordsFunc, changeNotGuessedWordsFunc, addNetxRound } = gameSlice.actions

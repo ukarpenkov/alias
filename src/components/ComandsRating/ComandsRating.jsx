@@ -10,7 +10,7 @@ export const ComandsRating = ({ changePanel, result }) => {
   const commands = useSelector(state => state.game.commands)
   let activeCommandIndex = commands.findIndex(commnad => commnad.isActive === true)
   let currentCommand = commands[activeCommandIndex].name
-
+  console.log(commands)
   return (
     <>
       <PanelHeader

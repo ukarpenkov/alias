@@ -83,7 +83,7 @@ const gameSlice = createSlice({
       if (activeCommandIndex === -1) {
         updatedState[0].isActive = true
       }
-      else if (activeCommandIndex >= updatedState.length) {
+      else if (activeCommandIndex >= updatedState.length - 1) {
         updatedState[0].isActive = true
       }
       else {

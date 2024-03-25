@@ -8,6 +8,8 @@ import { useSelector } from 'react-redux'
 
 export const ComandsRating = ({ changePanel, result }) => {
   const commands = useSelector(state => state.game.commands)
+  let currentCommandIndex = commands.findIndex(item => item.isActive === true)
+
   let activeCommandIndex = commands.findIndex(commnad => commnad.isActive === true)
   let currentCommand = commands[activeCommandIndex].name
   console.log(commands)
@@ -19,7 +21,8 @@ export const ComandsRating = ({ changePanel, result }) => {
       <div className='roundInfo'>
         <Placeholder
           icon={<Icon16Cards2 />}
-          header={`Раунд ${1}`}
+          header={`Раунд ${commands[currentCommandIndex]
+            .round[commands[currentCommandIndex].round.length - 1].number}`}
           action={<Button size="m">{currentCommand}</Button>}
         >
           Готовимся к игре

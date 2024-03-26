@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux'
 import {
   Button,
 } from '@vkontakte/vkui';
-import { Icon20Clock, Icon20ErrorCircleFillYellow, Icon20FireCircleFillRed } from '@vkontakte/icons';
+import { Icon20Clock } from '@vkontakte/icons';
 
 export const Timer = ({ changePanel }) => {
   const seconds = useSelector(state => state.game.settings.roundTime)

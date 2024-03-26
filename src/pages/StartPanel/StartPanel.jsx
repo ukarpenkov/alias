@@ -1,14 +1,13 @@
 import {
-  Alert,
   Button, PanelHeader, Tabbar, TabbarItem,
 
 } from '@vkontakte/vkui';
-import { Icon12ErrorCircleFill, Icon16AddCircleFillBlue, Icon16ErrorCircle, Icon20AddCircleFill, Icon20ArrowRightOutline, Icon20Clear, Icon20ErrorCircleFillYellow, Icon24DismissSubstract, Icon24ErrorCircleFillGray, } from '@vkontakte/icons';
+import { Icon20AddCircleFill, Icon20ArrowRightOutline, Icon20Clear, Icon20ErrorCircleFillYellow, } from '@vkontakte/icons';
 import './StartPanel.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { CommandsList } from '../../components/CommandsList/CommandsList';
 import { addCommand, addWords, setActiveCommand } from '../../store/slice';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export const StartPanel = ({ changePanel, result }) => {
 

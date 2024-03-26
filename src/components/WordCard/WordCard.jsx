@@ -2,7 +2,7 @@ import {
   Button, ButtonGroup, Counter, Group, ModalCardBase, PanelHeader, Tabbar, TabbarItem,
 
 } from '@vkontakte/vkui';
-import { Icon20ArrowRightOutline, Icon20CancelCircleFillRed, Icon20CheckCircleOn } from '@vkontakte/icons';
+import { Icon20CancelCircleFillRed, Icon20CheckCircleOn } from '@vkontakte/icons';
 import { Timer } from '../Timer/Timer';
 import './WordCard.css'
 import { addGuessedWord, addNotGuessedWord } from '../../store/slice';

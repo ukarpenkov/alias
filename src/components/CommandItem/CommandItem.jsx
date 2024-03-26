@@ -1,8 +1,7 @@
 import {
   Button, Input,
-  Tooltip,
 } from '@vkontakte/vkui';
-import { useDispatch, useSelector } from 'react-redux'
+
 import { Icon16Cancel, } from '@vkontakte/icons';
 import './CommandItem.css'
 

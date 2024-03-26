@@ -2,7 +2,7 @@ import { CommandItem } from "../CommandItem/CommandItem"
 import { useSelector } from 'react-redux'
 import { addWords, editCommand, removeCommand } from '../../store/slice';
 import { useDispatch, } from 'react-redux'
-import { useState } from "react";
+
 
 
 export const CommandsList = ({ result, setCommandsCount, commandsCount, setWordsToCommands }) => {

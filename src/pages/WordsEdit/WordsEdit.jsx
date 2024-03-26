@@ -1,10 +1,8 @@
 import {
   Button, Input, Panel, PanelHeader, Tabbar, TabbarItem, View,
-
 } from '@vkontakte/vkui';
-import { Icon20ChevronRight2, Icon20ThumbsDownOutline, Icon20ThumbsUp, Icon20ThumbsUpOutline } from '@vkontakte/icons';
+import { Icon20ChevronRight2, Icon20ThumbsUp, Icon20ThumbsUpOutline } from '@vkontakte/icons';
 import { useDispatch, useSelector } from 'react-redux'
-import { useState } from 'react';
 import { addNetxRound, changeGuessedWordsFunc, changeNotGuessedWordsFunc, setActiveCommand } from '../../store/slice';
 
 export const WordsEdit = ({ changePanel }) => {

@@ -7,7 +7,7 @@ import { Result } from "./pages/Result/Result";
 import { store } from "./store/store";
 import { MainPage } from "./pages/MainPage/MainPage";
 import { Rules } from "./pages/Rules/Rules";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ComandsRating } from "./components/ComandsRating/ComandsRating";
 import { wordDB } from "./data/words";
 import { WordsEdit } from "./pages/WordsEdit/WordsEdit";
@@ -15,13 +15,11 @@ import { WordsEdit } from "./pages/WordsEdit/WordsEdit";
 
 function App() {
   const [activePanel, setActivePanel] = useState('main');
-
   const changePanel = (id) => {
     setActivePanel(id)
   }
 
   return (
-
     <AppRoot>
       <Provider store={store}>
         <View activePanel={activePanel}>

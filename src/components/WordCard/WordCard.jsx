@@ -68,16 +68,8 @@ export const WordCard = ({ changePanel }) => {
         </div>
       </div>
       <div className='wordcard-container'>
-        <h1> <Timer /></h1>
+        <h1> <Timer changePanel={changePanel} /></h1>
       </div>
-      <Tabbar>
-        <TabbarItem
-          text="Далее"
-          onClick={() => changePanel('words-edit')}
-        >
-          <Icon20ArrowRightOutline />
-        </TabbarItem>
-      </Tabbar>
     </>
   )
 }

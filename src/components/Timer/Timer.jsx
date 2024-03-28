@@ -5,39 +5,13 @@ import {
 } from '@vkontakte/vkui';
 import { Icon20Clock } from '@vkontakte/icons';
 
-export const Timer = ({ changePanel }) => {
-  const seconds = useSelector(state => state.game.settings.roundTime)
-  const [over, setOver] = React.useState(false);
-  const [[s], setTime] = React.useState([seconds]);
+export const Timer = ({ s }) => {
 
-  const timeIsUpBtn = () => {
-    return <Button size="l" mode="primary" stretched style={{
-      width: '300px',
-      height: '50px',
-      backgroundColor: 'yellow'
-    }}
-      onClick={() => changePanel('words-edit')}>
-      <Icon20Clock width={20} height={20} />
-      &nbsp;Результаты
-    </Button>
-  }
-  const tick = () => {
-    if (s === 0) {
-      setOver(true);
-    } else {
-      setTime([s - 1]);
-    }
-  };
-
-  React.useEffect(() => {
-    const timerID = setInterval(() => tick(), 1000);
-    return () => clearInterval(timerID);
-  });
-
+  console.log(s.toString().padStart(2, '0'))
   return (
     <div>
       <p>
-        {!over ? `${s.toString().padStart(2, '0')}` : timeIsUpBtn()}
+        {s.toString().padStart(2, '0')}
       </p>
     </div>
 

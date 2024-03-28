@@ -2,14 +2,18 @@ import {
   Button, ButtonGroup, Counter, Group, ModalCardBase, PanelHeader, Tabbar, TabbarItem,
 
 } from '@vkontakte/vkui';
-import { Icon20CancelCircleFillRed, Icon20CheckCircleOn } from '@vkontakte/icons';
+import { Icon20CancelCircleFillRed, Icon20CheckCircleOn, Icon20Clock } from '@vkontakte/icons';
 import { Timer } from '../Timer/Timer';
 import './WordCard.css'
 import { addGuessedWord, addNotGuessedWord } from '../../store/slice';
 import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from 'react';
 
 
 export const WordCard = ({ changePanel }) => {
+  const seconds = useSelector(state => state.game.settings.roundTime)
+  const [over, setOver] = useState(false);
+  const [[s], setTime] = useState([seconds]);
   const dispatch = useDispatch()
   const commands = useSelector(state => state.game.commands)
   const setGuessedWord = () => {
@@ -27,7 +31,28 @@ export const WordCard = ({ changePanel }) => {
   let notGuessedWordsCount = commands[currentCommandIndex]
     .round[(commands[currentCommandIndex].round.length) - 1]
     .notGuessedWords.length
-
+  const timeIsUpBtn = () => {
+    return <Button size="l" mode="primary" stretched style={{
+      width: '300px',
+      height: '50px',
+      backgroundColor: 'yellow'
+    }}
+      onClick={() => changePanel('words-edit')}>
+      <Icon20Clock width={20} height={20} />
+      &nbsp;Результаты
+    </Button>
+  }
+  const tick = () => {
+    if (s === 0) {
+      setOver(true);
+    } else {
+      setTime([s - 1]);
+    }
+  };
+  useEffect(() => {
+    const timerID = setInterval(() => tick(), 1000);
+    return () => clearInterval(timerID);
+  });
 
   return (
     <>
@@ -54,7 +79,6 @@ export const WordCard = ({ changePanel }) => {
               </ButtonGroup>
             }
           />
-
         </Group>
         <div className='current-result-wrapper '>
           <div className='current-result'>
@@ -68,7 +92,9 @@ export const WordCard = ({ changePanel }) => {
         </div>
       </div>
       <div className='wordcard-container'>
-        <h1> <Timer changePanel={changePanel} /></h1>
+        <h1>
+          {!over ? <Timer s={[s]} /> : timeIsUpBtn()}
+        </h1>
       </div>
     </>
   )

@@ -65,7 +65,7 @@ export const WordCard = ({ changePanel }) => {
             style={{ width: 320 }}
             header={currentWord}
             actions={
-              <ButtonGroup mode="horizontal" gap="s" stretched>
+              !over ? <ButtonGroup mode="horizontal" gap="s" stretched>
                 <Button size="l" mode="primary" stretched
                   onClick={() => setNotGuessedWord()}>
                   <Icon20CancelCircleFillRed width={20} height={20} />
@@ -76,7 +76,7 @@ export const WordCard = ({ changePanel }) => {
                   <Icon20CheckCircleOn width={20} height={20} color='green' />
                   отгадано
                 </Button>
-              </ButtonGroup>
+              </ButtonGroup> : null
             }
           />
         </Group>

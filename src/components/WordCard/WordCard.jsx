@@ -52,7 +52,7 @@ export const WordCard = ({ changePanel }) => {
   useEffect(() => {
     const timerID = setInterval(() => tick(), 1000);
     return () => clearInterval(timerID);
-  });
+  }, [s]);
 
   return (
     <>

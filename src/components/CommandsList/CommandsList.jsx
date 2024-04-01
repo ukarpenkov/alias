@@ -19,6 +19,7 @@ export const CommandsList = ({ result, setCommandsCount, commandsCount, setWords
     }))
   }
   const commands = useSelector(state => state.game.commands)
+
   const dispatch = useDispatch()
   const handleRemoveCommand = (id) => {
     dispatch(removeCommand(id))
@@ -31,7 +32,9 @@ export const CommandsList = ({ result, setCommandsCount, commandsCount, setWords
   }
   console.log(commands)
   return <>
-    {commands.map((item) => <CommandItem key={item.id} {...item} removeCommand={handleRemoveCommand} editCommand={handleEditCommand} result={result}
+    {commands.map((item) => <CommandItem key={item.id} {...item}
+      currentScore={item.round.reduce((p, c) => p + c.guessedWords.length, 0)}
+      removeCommand={handleRemoveCommand} editCommand={handleEditCommand} result={result}
       commandsCount={commandsCount}
     />)}
   </>

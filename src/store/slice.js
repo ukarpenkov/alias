@@ -37,7 +37,6 @@ const gameSlice = createSlice({
     },
     removeCommand(state, action) {
       state.commands = state.commands.filter((item) => item.id !== action.payload)
-      // return state
     },
     editCommand(state, action) {
       let updatedState = [...state.commands]
@@ -47,11 +46,9 @@ const gameSlice = createSlice({
     },
     changeRoundTime(state, action) {
       state.settings.roundTime = action.payload
-      // return state
     },
     changeWordsCount(state, action) {
       state.settings.wordsToWin = action.payload
-      // return state
     },
     addWords(state, action) {
       state.commands.map((item, index) => {

@@ -7,31 +7,49 @@ import { addNetxRound, changeGuessedWordsFunc, changeNotGuessedWordsFunc, setAct
 
 export const WordsEdit = ({ changePanel }) => {
   const commands = useSelector(state => state.game.commands)
+  const goal = useSelector(state => state.game.settings.wordsToWin)
   let currentCommandIndex = commands.findIndex(item => item.isActive === true)
   let currentCommand = commands[currentCommandIndex]
   let guessedWords = currentCommand.round[currentCommand.round.length - 1].guessedWords
   let notGuessedWords = currentCommand.round[currentCommand.round.length - 1].notGuessedWords
   const dispatch = useDispatch()
-
-  console.log('comp', commands)
   const changeGuessedWords = (word) => {
     dispatch(changeGuessedWordsFunc({
       word: word
     }))
-    console.log('bad', commands)
   }
   const changeNotGuessedWords = (word) => {
     dispatch(changeNotGuessedWordsFunc({
       word: word
     }))
-    console.log('good', commands)
+  }
+
+  const checkWinWordsCount = () => {
+    let sumResult = [...commands]
+    sumResult.forEach(a => {
+      let result = a.round.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue.guessedWords.length
+      }, 0)
+      if (result >= goal) {
+        console.log('goal ЕСТЬ')
+        return true
+      }
+    })
+    return false
   }
 
   const setNextCommand = () => {
     dispatch(addNetxRound())
     dispatch(setActiveCommand())
+    let isLastCommand = currentCommand === commands[commands.length - 1]
+    if (isLastCommand && checkWinWordsCount()) {
+      console.log('ПОБКДВ!!!!!!!!!!!!!!!!!!!')
+    }
+    checkWinWordsCount()
     changePanel('commands-rating')
   }
+
+
 
   return (
     <View activePanel="wordsEdit">

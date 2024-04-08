@@ -26,15 +26,17 @@ export const WordsEdit = ({ changePanel }) => {
 
   const checkWinWordsCount = () => {
     let sumResult = [...commands]
+    let result = []
     sumResult.forEach(a => {
-      let result = a.round.reduce((accumulator, currentValue) => {
+      result.push(a.round.reduce((accumulator, currentValue) => {
         return accumulator + currentValue.guessedWords.length
-      }, 0)
-      if (result >= goal) {
-        console.log('goal ЕСТЬ')
-        return true
-      }
+      }, 0))
+      console.log('result', result)
     })
+    if (result >= goal) {
+      console.log('goal ЕСТЬ')
+      return true
+    }
     return false
   }
 
@@ -42,6 +44,7 @@ export const WordsEdit = ({ changePanel }) => {
     dispatch(addNetxRound())
     dispatch(setActiveCommand())
     let isLastCommand = currentCommand === commands[commands.length - 1]
+    console.log('isLAST', isLastCommand, checkWinWordsCount())
     if (isLastCommand && checkWinWordsCount()) {
       console.log('ПОБКДВ!!!!!!!!!!!!!!!!!!!')
     }

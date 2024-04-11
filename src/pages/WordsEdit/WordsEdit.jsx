@@ -3,7 +3,7 @@ import {
 } from '@vkontakte/vkui';
 import { Icon20ChevronRight2, Icon20ThumbsUp, Icon20ThumbsUpOutline } from '@vkontakte/icons';
 import { useDispatch, useSelector } from 'react-redux'
-import { addNetxRound, changeGuessedWordsFunc, changeNotGuessedWordsFunc, setActiveCommand } from '../../store/slice';
+import { addNetxRound, changeGuessedWordsFunc, changeNotGuessedWordsFunc, setActiveCommand, setWinner } from '../../store/slice';
 
 export const WordsEdit = ({ changePanel }) => {
   const commands = useSelector(state => state.game.commands)
@@ -23,18 +23,22 @@ export const WordsEdit = ({ changePanel }) => {
       word: word
     }))
   }
-
+  let winner = ''
+  let maxPoints = 0
   const checkWinWordsCount = () => {
-    let sumResult = [...commands]
     let result = []
+    let sumResult = [...commands]
     sumResult.forEach(a => {
       result.push(a.round.reduce((accumulator, currentValue) => {
         return accumulator + currentValue.guessedWords.length
       }, 0))
       console.log('result', result)
     })
-    if (result >= goal) {
-      console.log('goal ЕСТЬ')
+    var maxIndex = result.indexOf(Math.max.apply(null, result))
+    console.log(result[maxIndex])
+    if (result[maxIndex] >= goal) {
+      winner = commands[maxIndex].name
+      maxPoints = result[maxIndex]
       return true
     }
     return false
@@ -44,11 +48,12 @@ export const WordsEdit = ({ changePanel }) => {
     dispatch(addNetxRound())
     dispatch(setActiveCommand())
     let isLastCommand = currentCommand === commands[commands.length - 1]
-    console.log('isLAST', isLastCommand, checkWinWordsCount())
-    if (isLastCommand && checkWinWordsCount()) {
-      console.log('ПОБКДВ!!!!!!!!!!!!!!!!!!!')
-    }
     checkWinWordsCount()
+    if (isLastCommand && checkWinWordsCount()) {
+      dispatch(setWinner([winner, maxPoints]))
+      changePanel('result')
+      return
+    }
     changePanel('commands-rating')
   }
 
@@ -90,8 +95,6 @@ export const WordsEdit = ({ changePanel }) => {
             </div>
           })
         }
-
-
         <Tabbar>
           <TabbarItem
             text="Продолжить"

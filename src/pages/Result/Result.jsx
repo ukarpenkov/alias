@@ -4,9 +4,11 @@ import {
 
 } from '@vkontakte/vkui';
 import { Icon16Replay, Icon20CrownCircleFillVkDating, Icon24SadFaceOutline } from '@vkontakte/icons';
+import { useSelector } from 'react-redux';
 
 
 export const Result = ({ changePanel }) => {
+  const winner = useSelector(state => state.game.winner)
   return (
     <View activePanel="result">
       <Panel id='result'>
@@ -16,7 +18,7 @@ export const Result = ({ changePanel }) => {
           <Placeholder
             icon={<Icon20CrownCircleFillVkDating />}
             header={`Победитель`}
-            action={<Button size="m">Команда {1} с результатом в {80} очков
+            action={<Button size="m">Команда {winner[0]} с результатом в {winner[1]} очков
             </Button>}
           >
           </Placeholder>

@@ -22,6 +22,7 @@ const gameInitialState = {
   roundTime: 10,
   wordsToWin: 50,
   currentRound: 1,
+
 }
 
 const gameSlice = createSlice({
@@ -29,7 +30,8 @@ const gameSlice = createSlice({
   initialState: {
     commands: commandInitialState,
     words: wordDB,
-    settings: gameInitialState
+    settings: gameInitialState,
+    winner: []
   },
   reducers: {
     addCommand(state, action) {
@@ -119,9 +121,12 @@ const gameSlice = createSlice({
       let nextRoundData = { number: (currentRoundValue + 1), guessedWords: [], notGuessedWords: [] }
       updatedState[index].round.push(nextRoundData)
       state.commands = updatedState
+    },
+    setWinner(state, action) {
+      state.winner = action.payload
     }
   }
 })
 
 export default gameSlice.reducer
-export const { addCommand, removeCommand, editCommand, changeRoundTime, changeWordsCount, addWords, addGuessedWord, addNotGuessedWord, setActiveCommand, changeGuessedWordsFunc, changeNotGuessedWordsFunc, addNetxRound } = gameSlice.actions
+export const { addCommand, removeCommand, editCommand, changeRoundTime, changeWordsCount, addWords, addGuessedWord, addNotGuessedWord, setActiveCommand, changeGuessedWordsFunc, changeNotGuessedWordsFunc, addNetxRound, setWinner } = gameSlice.actions

@@ -126,7 +126,10 @@ const gameSlice = createSlice({
       state.winner = action.payload
     },
     reset(state) {
-      return undefined
+      state.commands = commandInitialState
+      state.words = wordDB
+      state.settings = gameInitialState
+      state.words = []
     }
   }
 })

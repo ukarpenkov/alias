@@ -124,9 +124,12 @@ const gameSlice = createSlice({
     },
     setWinner(state, action) {
       state.winner = action.payload
+    },
+    reset(state) {
+      return undefined
     }
   }
 })
 
 export default gameSlice.reducer
-export const { addCommand, removeCommand, editCommand, changeRoundTime, changeWordsCount, addWords, addGuessedWord, addNotGuessedWord, setActiveCommand, changeGuessedWordsFunc, changeNotGuessedWordsFunc, addNetxRound, setWinner } = gameSlice.actions
+export const { addCommand, removeCommand, editCommand, changeRoundTime, changeWordsCount, addWords, addGuessedWord, addNotGuessedWord, setActiveCommand, changeGuessedWordsFunc, changeNotGuessedWordsFunc, addNetxRound, setWinner, reset } = gameSlice.actions

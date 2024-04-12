@@ -4,11 +4,17 @@ import {
 
 } from '@vkontakte/vkui';
 import { Icon16Replay, Icon20CrownCircleFillVkDating, Icon24SadFaceOutline } from '@vkontakte/icons';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { reset } from '../../store/slice';
 
 
 export const Result = ({ changePanel }) => {
+  const dispatch = useDispatch()
   const winner = useSelector(state => state.game.winner)
+  const resetState = () => {
+    dispatch(reset())
+    changePanel('main')
+  }
   return (
     <View activePanel="result">
       <Panel id='result'>
@@ -33,7 +39,7 @@ export const Result = ({ changePanel }) => {
         <Tabbar>
           <TabbarItem
             text="Меню"
-            onClick={() => changePanel('main')}
+            onClick={() => resetState()}
           >
             <Icon16Replay />
           </TabbarItem>

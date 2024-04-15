@@ -22,7 +22,6 @@ const gameInitialState = {
   roundTime: 10,
   wordsToWin: 50,
   currentRound: 1,
-
 }
 
 const gameSlice = createSlice({
@@ -58,7 +57,7 @@ const gameSlice = createSlice({
         return item.words.push(...action.payload.words[index])
       })
     },
-    addGuessedWord(state, action) {
+    addGuessedWord(state) {
       let updatedState = [...state.commands]
       let index = updatedState.findIndex(item => item.isActive === true)
       let word = updatedState[index].words.shift()
@@ -67,7 +66,7 @@ const gameSlice = createSlice({
       state.commands = updatedState
       return state
     },
-    addNotGuessedWord(state, action) {
+    addNotGuessedWord(state) {
       let updatedState = [...state.commands]
       let index = updatedState.findIndex(item => item.isActive === true)
       let word = updatedState[index].words.shift()

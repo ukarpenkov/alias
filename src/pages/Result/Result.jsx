@@ -9,11 +9,10 @@ import { reset } from '../../store/slice';
 
 
 export const Result = ({ changePanel }) => {
-  const dispatch = useDispatch()
   const winner = useSelector(state => state.game.winner)
   const resetState = () => {
-    dispatch(reset())
     changePanel('main')
+    window.location.reload()
   }
   return (
     <View activePanel="result">

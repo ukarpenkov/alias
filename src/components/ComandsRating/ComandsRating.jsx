@@ -12,7 +12,6 @@ export const ComandsRating = ({ changePanel, result }) => {
 
   let activeCommandIndex = commands.findIndex(commnad => commnad.isActive === true)
   let currentCommand = commands[activeCommandIndex].name
-  console.log(commands)
   return (
     <>
       <PanelHeader

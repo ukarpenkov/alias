@@ -35,8 +35,6 @@ export const StartPanel = ({ changePanel, result }) => {
       words: [],
       isActive: false
     }))
-    console.log(commands)
-
     setCommandsCount(commandsCount + 1)
     setWordsToCommands()
   }

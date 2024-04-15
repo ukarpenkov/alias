@@ -30,7 +30,6 @@ export const CommandsList = ({ result, setCommandsCount, commandsCount, setWords
   const handleEditCommand = (name, id) => {
     dispatch(editCommand(name, id))
   }
-  console.log(commands)
   return <>
     {commands.map((item) => <CommandItem key={item.id} {...item}
       currentScore={item.round.reduce((p, c) => p + c.guessedWords.length, 0)}

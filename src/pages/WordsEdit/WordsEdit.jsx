@@ -32,11 +32,13 @@ export const WordsEdit = ({ changePanel }) => {
       result.push(a.round.reduce((accumulator, currentValue) => {
         return accumulator + currentValue.guessedWords.length
       }, 0))
-      console.log('result', result)
+
     })
-    var maxIndex = result.indexOf(Math.max.apply(null, result))
-    console.log(result[maxIndex])
-    if (result[maxIndex] >= goal) {
+    let maxIndex = result.indexOf(Math.max.apply(null, result))
+    let maxElement = result[maxIndex]
+    const duplicates = result.filter((score) => score >= maxElement);
+    console.log('DUPLIC', duplicates)
+    if (result[maxIndex] >= goal && duplicates.length <= 1) {
       winner = commands[maxIndex].name
       maxPoints = result[maxIndex]
       return true

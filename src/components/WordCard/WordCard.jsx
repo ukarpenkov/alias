@@ -21,7 +21,6 @@ export const WordCard = ({ changePanel }) => {
   }
   const setNotGuessedWord = () => {
     dispatch(addNotGuessedWord({}))
-    console.log(commands)
   }
   let currentCommandIndex = commands.findIndex(item => item.isActive === true)
   let currentWord = commands[currentCommandIndex].words[0]

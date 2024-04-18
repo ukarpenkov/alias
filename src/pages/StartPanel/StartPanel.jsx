@@ -60,6 +60,7 @@ export const StartPanel = ({ changePanel, result }) => {
 
       <Tabbar>
         <TabbarItem
+          className='tabbar-alias'
           onClick={() => setActiveCommandWithRoute()}
           text="Далее"
         >

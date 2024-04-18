@@ -5,6 +5,7 @@ import { useDispatch, } from 'react-redux'
 
 
 
+
 export const CommandsList = ({ result, setCommandsCount, commandsCount, setWordsToCommands }) => {
   const words = useSelector(state => state.game.words)
   const setWordsToCommandsWhenRemove = () => {

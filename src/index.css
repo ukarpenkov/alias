@@ -13,6 +13,23 @@
   width: 95%;
 }
 
+.vkuiTabbarItem__in {
+  align-items: center;
+  padding: 25px 2px 2px;
+}
+
+.vkuiTypography--weight-2.vkuiTypography--weight-2.vkuiTypography--weight-2 {
+  font-size: 20px;
+}
+
+.vkuiTabbar {
+  height: 80px;
+}
+
+.vkuiTabbarItem__text {
+  overflow: visible;
+}
+
 @media (max-width: 767.9px) {
   .vkuiGroup--sizeX-none {
     width: 80%;

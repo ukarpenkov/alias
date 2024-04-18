@@ -67,13 +67,13 @@ export const WordCard = ({ changePanel }) => {
               !over ? <ButtonGroup mode="horizontal" gap="s" stretched>
                 <Button size="l" mode="primary" stretched
                   onClick={() => setNotGuessedWord()}>
-                  <Icon20CancelCircleFillRed width={20} height={20} />
-                  пропуск
+                  <Icon20CancelCircleFillRed width={30} height={30} />
+
                 </Button>
-                <Button size="l" mode="primary" stretched
+                <Button size="l" mode="primary" stretched after='fff'
                   onClick={() => setGuessedWord()}>
-                  <Icon20CheckCircleOn width={20} height={20} color='green' />
-                  отгадано
+                  <Icon20CheckCircleOn width={30} height={30} color='green' />
+
                 </Button>
               </ButtonGroup> : null
             }
@@ -81,11 +81,11 @@ export const WordCard = ({ changePanel }) => {
         </Group>
         <div className='current-result-wrapper '>
           <div className='current-result'>
-            <Button size="m" after={<Counter>{guessedWordsCount}</Counter>}>
-              Отгадано
+            <Button size="m" style={{ backgroundColor: 'green' }}>
+              Отгадано: {guessedWordsCount}
             </Button>
-            <Button size="m" after={<Counter color='white' mode='primary'>{notGuessedWordsCount}</Counter>} style={{ backgroundColor: 'red' }}>
-              Пропущено
+            <Button size="m" style={{ backgroundColor: 'red' }}>
+              Пропущено: {notGuessedWordsCount}
             </Button>
           </div >
         </div>

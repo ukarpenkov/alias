@@ -7,9 +7,8 @@ import { Result } from "./pages/Result/Result";
 import { store } from "./store/store";
 import { MainPage } from "./pages/MainPage/MainPage";
 import { Rules } from "./pages/Rules/Rules";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { ComandsRating } from "./components/ComandsRating/ComandsRating";
-import { wordDB } from "./data/words";
 import { WordsEdit } from "./pages/WordsEdit/WordsEdit";
 
 

@@ -30,6 +30,10 @@
   overflow: visible;
 }
 
+.gameInfo {
+  position: relative;
+  top: 120px;
+}
 @media (max-width: 767.9px) {
   .vkuiGroup--sizeX-none {
     width: 80%;

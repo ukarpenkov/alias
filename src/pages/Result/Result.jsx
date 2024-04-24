@@ -23,14 +23,7 @@ export const Result = ({ changePanel }) => {
           <Placeholder
             icon={<Icon20CrownCircleFillVkDating />}
             header={`Победитель`}
-            action={<Button size="m">Команда {winner[0]} с результатом в {winner[1]} очков
-            </Button>}
-          >
-          </Placeholder>
-          <Placeholder
-            icon={<Icon24SadFaceOutline />}
-
-            action={<Button size="m">У команды {1} {80} очков
+            action={<Button size="m">Команда "{winner[0]}" с результатом в {winner[1]} очков
             </Button>}
           >
           </Placeholder>

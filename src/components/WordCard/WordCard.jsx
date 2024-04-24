@@ -68,12 +68,10 @@ export const WordCard = ({ changePanel }) => {
                 <Button size="l" mode="primary" stretched
                   onClick={() => setNotGuessedWord()}>
                   <Icon20CancelCircleFillRed width={30} height={30} />
-
                 </Button>
-                <Button size="l" mode="primary" stretched after='fff'
+                <Button size="l" mode="primary" stretched
                   onClick={() => setGuessedWord()}>
                   <Icon20CheckCircleOn width={30} height={30} color='green' />
-
                 </Button>
               </ButtonGroup> : null
             }

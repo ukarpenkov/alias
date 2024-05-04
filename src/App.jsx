@@ -17,7 +17,7 @@ function App() {
   const changePanel = (id) => {
     setActivePanel(id)
   }
-  console.log('gg');
+
   return (
     <AppRoot>
       <Provider store={store}>

@@ -33,7 +33,7 @@ export const GameSettings = ({ changePanel }) => {
   return (
 
     <>
-      <PanelHeader>Настройки</PanelHeader>
+      <PanelHeader className='start-panel-width'>Настройки</PanelHeader>
       <Group>
         <FormLayout >
           <FormItem top={<h1 id="words">Количество слов</h1>} >

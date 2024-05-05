@@ -5,13 +5,16 @@
 }
 
 .vkuiFixedLayout--vertical-top {
-  left: 0;
+  left: 0 !important;
   width: 100%;
 }
 
 .vkuiGroup--sizeX-none {
   width: 95%;
 }
+
+.vkuiPanel__in {
+  align-items: stretch !important;}
 
 .vkuiTabbarItem__in {
   align-items: center;
@@ -34,6 +37,11 @@
   position: relative;
   top: 120px;
 }
+.start-panel-width{
+  width: 96.8%;
+}
+
+
 @media (max-width: 767.9px) {
   .vkuiGroup--sizeX-none {
     width: 80%;

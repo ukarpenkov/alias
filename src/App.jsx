@@ -12,6 +12,7 @@ import { ComandsRating } from "./components/ComandsRating/ComandsRating";
 import { WordsEdit } from "./pages/WordsEdit/WordsEdit";
 
 
+
 function App() {
   const [activePanel, setActivePanel] = useState('main');
   const changePanel = (id) => {

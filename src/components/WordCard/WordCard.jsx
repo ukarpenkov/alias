@@ -55,8 +55,8 @@ export const WordCard = ({ changePanel }) => {
 
   return (
     <>
-      <PanelHeader>Раунд {commands[currentCommandIndex]
-        .round[commands[currentCommandIndex].round.length - 1].number}</PanelHeader>
+      <h1>Раунд {commands[currentCommandIndex]
+        .round[commands[currentCommandIndex].round.length - 1].number}</h1>
       <div className='wordcard-container'>
         <Group>
           <ModalCardBase

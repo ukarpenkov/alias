@@ -5,7 +5,7 @@
 }
 
 .vkuiFixedLayout--vertical-top {
-  left: 0 !important;
+  left: 0;
   width: 100%;
 }
 
@@ -13,34 +13,12 @@
   width: 95%;
 }
 
-.vkuiPanel__in {
-  align-items: stretch !important;}
-
-.vkuiTabbarItem__in {
-  align-items: center;
-  padding: 25px 2px 2px;
-}
-
-.vkuiTypography--weight-2.vkuiTypography--weight-2.vkuiTypography--weight-2 {
-  font-size: 20px;
-}
-
-.vkuiTabbar {
-  height: 80px;
-}
-
-.vkuiTabbarItem__text {
-  overflow: visible;
-}
-
-.gameInfo {
-  position: relative;
-  top: 120px;
-}
 .start-panel-width{
-  width: 96.8%;
+  display: flex;
+  align-content: flex-start;
+  position: relative;
+  left: 4px;
 }
-
 
 @media (max-width: 767.9px) {
   .vkuiGroup--sizeX-none {

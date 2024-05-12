@@ -16,7 +16,7 @@ export const CommandItem = ({ name, id, score, removeCommand, editCommand, resul
         type="text"
         disabled={(result === 'false') ? false : true}
         onFocus={(e) => {
-          e.target.value = ''
+          e.target.value =  e.target.value 
         }}
         onChange={(e) => {
           let newName = e.target.value

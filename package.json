@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@vkontakte/icons": "^2.90.0",
     "@vkontakte/vk-bridge": "^2.12.2",
+    "@vkontakte/vk-miniapps-deploy": "^0.1.7",
     "@vkontakte/vkui": "^5.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -21,7 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "tunnel": "vk-tunnel --insecure=1 --http-protocol=https --ws-protocol=wss --host=localhost --port=3000 --timeout=5000"
+    "tunnel": "vk-tunnel --insecure=1 --http-protocol=https --ws-protocol=wss --host=localhost --port=3000 --timeout=5000",
+    "deploy": "vk-miniapps-deploy"
   },
   "eslintConfig": {
     "extends": [

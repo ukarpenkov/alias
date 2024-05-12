@@ -46,8 +46,8 @@ export const StartPanel = ({ changePanel, result }) => {
 
   return (
     <>
-      <PanelHeader
-      >Команды</PanelHeader>
+      <h1
+      >Команды</h1>
       <CommandsList result={result} setCommandsCount={setCommandsCount} commandsCount={commandsCount} />
       {commandsCount <= 4 ? <Button
         onClick={() => addNewCommnadWithWords()}

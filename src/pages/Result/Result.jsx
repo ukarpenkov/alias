@@ -17,8 +17,8 @@ export const Result = ({ changePanel }) => {
   return (
     <View activePanel="result">
       <Panel id='result'>
-        <PanelHeader
-        >Результат</PanelHeader>
+        <h1
+        >Результат</h1>
         <div className='gameInfo'>
           <Placeholder
             icon={<Icon20CrownCircleFillVkDating />}

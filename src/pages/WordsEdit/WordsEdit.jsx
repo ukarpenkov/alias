@@ -63,8 +63,8 @@ export const WordsEdit = ({ changePanel }) => {
   return (
     <View activePanel="wordsEdit">
       <Panel id='wordsEdit'>
-        <PanelHeader
-        >Очки раунда</PanelHeader>
+        <h1
+        >Очки раунда</h1>
         {
           guessedWords.map(word => {
             return <div className='command-card' key={word + 1}>

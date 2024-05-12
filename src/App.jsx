@@ -20,7 +20,7 @@ function App() {
   }
 
   return (
-    <AppRoot>
+    <AppRoot >
       <Provider store={store}>
         <View activePanel={activePanel}>
           <Panel id="main">

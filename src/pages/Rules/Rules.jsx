@@ -9,8 +9,8 @@ export const Rules = ({ changePanel }) => {
   return (
 
     <>
-      <PanelHeader
-      >Правила</PanelHeader>
+      <h1
+      >Правила</h1>
 
       <div>
         <ul>

@@ -14,8 +14,8 @@ export const ComandsRating = ({ changePanel, result }) => {
   let currentCommand = commands[activeCommandIndex].name
   return (
     <>
-      <PanelHeader
-      >Рейтинг</PanelHeader>
+      <h1
+      >Рейтинг</h1>
       <CommandsList result={result} />
       <div className='roundInfo'>
         <Placeholder

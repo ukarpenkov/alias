@@ -2,7 +2,7 @@ import {
   FormItem, FormLayout, Group, Input, PanelHeader, Slider, Tabbar, TabbarItem,
 
 } from '@vkontakte/vkui';
-import { Icon20ArrowRightOutline } from '@vkontakte/icons';
+import { Icon20ArrowRightOutline, Icon24Back } from '@vkontakte/icons';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { changeRoundTime, changeWordsCount } from '../../store/slice';
@@ -34,7 +34,11 @@ export const GameSettings = ({ changePanel }) => {
 
     <>
       {/* <PanelHeader className='start-panel-width'>Настройки</PanelHeader> */}
+      <div style={{'display':'flex', 'width': '100%', 'justify-content':'space-between','align-items': 'center'}}>
       <h1 className='start-panel-width'>Настройки</h1>
+      <div onClick={()=>changePanel('commands')}><Icon24Back /></div>
+      </div>
+      
       <Group>
         <FormLayout >
           <FormItem top={<h1 id="words">Количество слов</h1>} >

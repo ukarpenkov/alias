@@ -2,7 +2,7 @@ import {
   Button, PanelHeader, Tabbar, TabbarItem,
 
 } from '@vkontakte/vkui';
-import { Icon20AddCircleFill, Icon20ArrowRightOutline, Icon20Clear, Icon20ErrorCircleFillYellow, } from '@vkontakte/icons';
+import { Icon20AddCircleFill, Icon20ArrowRightOutline, Icon20Clear, Icon20ErrorCircleFillYellow, Icon24Back, } from '@vkontakte/icons';
 import './StartPanel.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { CommandsList } from '../../components/CommandsList/CommandsList';
@@ -46,8 +46,11 @@ export const StartPanel = ({ changePanel, result }) => {
 
   return (
     <>
+      <div style={{'display':'flex', 'width': '100%', 'justify-content':'space-between','align-items': 'center'}}>
       <h1
       >Команды</h1>
+      <div onClick={()=>changePanel('main')}><Icon24Back /></div>
+      </div>
       <CommandsList result={result} setCommandsCount={setCommandsCount} commandsCount={commandsCount} />
       {commandsCount <= 4 ? <Button
         onClick={() => addNewCommnadWithWords()}

@@ -2,7 +2,7 @@ import {
   Button, PanelHeader, Placeholder, Tabbar, TabbarItem,
 
 } from '@vkontakte/vkui';
-import { Icon16Cards2, Icon20FireCircleFillRed } from '@vkontakte/icons';
+import { Icon16Cards2, Icon20FireCircleFillRed, Icon24Back } from '@vkontakte/icons';
 import { CommandsList } from '../CommandsList/CommandsList';
 import { useSelector } from 'react-redux'
 
@@ -14,8 +14,11 @@ export const ComandsRating = ({ changePanel, result }) => {
   let currentCommand = commands[activeCommandIndex].name
   return (
     <>
+      <div style={{'display':'flex', 'width': '100%', 'justify-content':'space-between','align-items': 'center'}}>
       <h1
       >Рейтинг</h1>
+      <div onClick={()=>changePanel('settings')}><Icon24Back /></div>
+      </div>
       <CommandsList result={result} />
       <div className='roundInfo'>
         <Placeholder

@@ -18,3 +18,7 @@
   background-color: #19191a !important;
   color: aqua;
 }
+
+.vkuiModalCardBase__dismiss{
+display: none;
+}

@@ -23,6 +23,7 @@ function App() {
     <AppRoot >
       <Provider store={store}>
        
+          
         <View activePanel={activePanel}>
           <Panel id="main">
             <MainPage changePanel={changePanel} />
@@ -48,8 +49,8 @@ function App() {
           <Panel id='result'>
             <Result changePanel={changePanel} />
           </Panel>
-
         </View>
+         
      
       </Provider>
     </AppRoot>

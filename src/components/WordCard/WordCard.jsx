@@ -11,8 +11,10 @@ import {
 import {
   Icon20CancelCircleFillRed,
   Icon20CheckCircleOn,
+  Icon20Clear,
   Icon20Clock,
   Icon24Back,
+  Icon28SwitchOutline,
 } from "@vkontakte/icons";
 import { Timer } from "../Timer/Timer";
 import "./WordCard.css";
@@ -73,6 +75,10 @@ export const WordCard = ({ changePanel }) => {
     const timerID = setInterval(() => tick(), 1000);
     return () => clearInterval(timerID);
   }, [s]);
+  const resetState = () => {
+    changePanel('main')
+    window.location.reload()
+  }
 
   return (
     <>
@@ -92,8 +98,12 @@ export const WordCard = ({ changePanel }) => {
             ].number
           }
         </h1>
-        <div onClick={() => changePanel("settings")}>
-          <Icon24Back />
+        <div onClick={() => resetState()} style={{
+          display: "flex",
+          alignItems: 'center',
+          marginTop: '2px'
+        }}>
+          <p>Сбрость игру&nbsp;</p> <Icon28SwitchOutline />
         </div>
       </div>
       <div className="wordcard-container">

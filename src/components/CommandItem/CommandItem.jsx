@@ -2,13 +2,10 @@ import { Button, Card, Input } from "@vkontakte/vkui";
 
 import { Icon16Cancel } from "@vkontakte/icons";
 import "./CommandItem.css";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 
 export const CommandItem = ({
   name,
   id,
-  score,
   removeCommand,
   editCommand,
   result,
@@ -31,9 +28,9 @@ export const CommandItem = ({
           defaultValue={name}
         />
       ) : (
-        <Card style={{ width: "100%", display:"flex" }}>
-          <p style={{marginLeft:"12px"}}>
-          {name}</p></Card>
+        <Card style={{ width: "100%", display: "flex", cursor: "default" }}>
+          <p style={{ marginLeft: "12px" }}>{name}</p>
+        </Card>
       )}
 
       {commandsCount <= 2 ? (

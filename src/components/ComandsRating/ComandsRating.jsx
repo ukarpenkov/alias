@@ -9,7 +9,6 @@ import {
   Icon16Cards2,
   Icon20FireCircleFillRed,
   Icon24Back,
-  Icon28SwitchOutline,
 } from "@vkontakte/icons";
 import { CommandsList } from "../CommandsList/CommandsList";
 import { useSelector } from "react-redux";
@@ -39,7 +38,7 @@ export const ComandsRating = ({ changePanel, result }) => {
           "align-items": "center",
         }}
       >
-        <h1>Рейтинг</h1>
+        <h1 style={{ cursor: "default" }}>Рейтинг</h1>
         {result === "false" ? (
           <div onClick={() => changePanel("settings")}>
             <Icon24Back />
@@ -66,7 +65,7 @@ export const ComandsRating = ({ changePanel, result }) => {
               commands[currentCommandIndex].round.length - 1
             ].number
           }`}
-          action={<Button size="m">{currentCommand}</Button>}
+          action={<h2 size="m">{currentCommand}</h2>}
         >
           Готовимся к игре
         </Placeholder>

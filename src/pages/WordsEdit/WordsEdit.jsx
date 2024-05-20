@@ -21,6 +21,7 @@ import {
   setActiveCommand,
   setWinner,
 } from "../../store/slice";
+import { ResetGames } from "../../components/ResetGames/ResetGames";
 
 export const WordsEdit = ({ changePanel }) => {
   const commands = useSelector((state) => state.game.commands);
@@ -85,11 +86,33 @@ export const WordsEdit = ({ changePanel }) => {
   };
 
   let commonWords = [...guessedWords, ...notGuessedWords].length;
-
+  const resetState = () => {
+    changePanel("main");
+    window.location.reload();
+  };
   return (
     <View activePanel="wordsEdit">
       <Panel id="wordsEdit">
-        <h1>Очки раунда</h1>
+        <div
+          style={{
+            display: "flex",
+            width: "100%",
+            "justify-content": "space-between",
+            "align-items": "center",
+          }}
+        >
+          <h1>Очки раунда</h1>
+          <div
+            onClick={() => resetState()}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginTop: "2px",
+            }}
+          >
+            <ResetGames />
+          </div>
+        </div>
         {commonWords ? (
           <>
             {guessedWords.map((word) => {

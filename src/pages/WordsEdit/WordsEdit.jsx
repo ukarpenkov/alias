@@ -131,7 +131,7 @@ export const WordsEdit = ({ changePanel }) => {
           </>
         ) : (
           <h3 style={{ display: "flex", alignItems: "center" }}>
-            <p>Вы ничего не сделали&nbsp; </p>
+            <p>Вы ничего не сделали&nbsp;</p>
             <div>
               <Icon28SadFaceOutline />
             </div>

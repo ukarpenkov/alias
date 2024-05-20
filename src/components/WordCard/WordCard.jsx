@@ -21,6 +21,7 @@ import "./WordCard.css";
 import { addGuessedWord, addNotGuessedWord } from "../../store/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { ResetGames } from "../ResetGames/ResetGames";
 
 export const WordCard = ({ changePanel }) => {
   const seconds = useSelector((state) => state.game.settings.roundTime);
@@ -103,7 +104,7 @@ export const WordCard = ({ changePanel }) => {
           alignItems: 'center',
           marginTop: '2px'
         }}>
-          <p>Сбрость игру&nbsp;</p> <Icon28SwitchOutline />
+           <ResetGames/>
         </div>
       </div>
       <div className="wordcard-container">

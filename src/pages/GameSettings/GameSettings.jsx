@@ -40,17 +40,14 @@ export const GameSettings = ({ changePanel }) => {
         style={{
           display: "flex",
           width: "100%",
-          "justify-content": "space-between",
-          "align-items": "center",
+          alignItems: "center",
+          gap: "3%",
         }}
       >
-        <h1 className="start-panel-width">Настройки</h1>
-        <div
-          onClick={() => changePanel("commands")}
-          style={{ cursor: "pointer" }}
-        >
+        <div onClick={() => changePanel("main")} style={{ cursor: "pointer" }}>
           <Icon24Back />
         </div>
+        <h1>Настройки</h1>
       </div>
 
       <Group>

@@ -10,6 +10,7 @@ import {
 } from "@vkontakte/vkui";
 import {
   Icon20CancelCircleFillRed,
+  Icon20CheckCircleFillGreen,
   Icon20CheckCircleOn,
   Icon20Clear,
   Icon20Clock,
@@ -57,10 +58,11 @@ export const WordCard = ({ changePanel }) => {
           width: "300px",
           height: "50px",
           backgroundColor: "yellow",
+          color: "#1c1a1a",
         }}
         onClick={() => changePanel("words-edit")}
       >
-        <Icon20Clock width={20} height={20} />
+        <Icon20Clock width={20} height={20} color="rebeccapurple" />
         &nbsp;Результаты
       </Button>
     );
@@ -77,9 +79,9 @@ export const WordCard = ({ changePanel }) => {
     return () => clearInterval(timerID);
   }, [s]);
   const resetState = () => {
-    changePanel('main')
-    window.location.reload()
-  }
+    changePanel("main");
+    window.location.reload();
+  };
 
   return (
     <>
@@ -99,12 +101,15 @@ export const WordCard = ({ changePanel }) => {
             ].number
           }
         </h1>
-        <div onClick={() => resetState()} style={{
-          display: "flex",
-          alignItems: 'center',
-          marginTop: '2px'
-        }}>
-           <ResetGames/>
+        <div
+          onClick={() => resetState()}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginTop: "2px",
+          }}
+        >
+          <ResetGames />
         </div>
       </div>
       <div className="wordcard-container">
@@ -130,7 +135,7 @@ export const WordCard = ({ changePanel }) => {
                     stretched
                     onClick={() => setGuessedWord()}
                   >
-                    <Icon20CheckCircleOn width={30} height={30} color="green" />
+                    <Icon20CheckCircleFillGreen width={30} height={30} />
                   </Button>
                 </ButtonGroup>
               ) : null

@@ -58,14 +58,14 @@ export const StartPanel = ({ changePanel, result }) => {
         style={{
           display: "flex",
           width: "100%",
-          "justify-content": "space-between",
-          "align-items": "center",
+          alignItems: "center",
+          gap: "3%",
         }}
       >
-        <h1>Команды</h1>
         <div onClick={() => changePanel("main")} style={{ cursor: "pointer" }}>
           <Icon24Back />
         </div>
+        <h1>Команды</h1>
       </div>
       <CommandsList
         result={result}
@@ -79,7 +79,8 @@ export const StartPanel = ({ changePanel, result }) => {
           size="l"
           className="add-command-btn"
         >
-          <span>Добавить команду&nbsp; </span> <Icon20AddCircleFill />
+          <span>Добавить команду&nbsp; </span>{" "}
+          <Icon20AddCircleFill color="rebeccapurple" />
         </Button>
       ) : (
         <Button

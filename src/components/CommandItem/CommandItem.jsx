@@ -16,6 +16,7 @@ export const CommandItem = ({
     <div className="command-card">
       {result === "false" ? (
         <Input
+          maxLength={25}
           style={{ width: "100%" }}
           type="text"
           onFocus={(e) => {

@@ -20,7 +20,7 @@ export const CommandItem = ({
           style={{ width: "100%" }}
           type="text"
           onFocus={(e) => {
-            e.target.value = e.target.value;
+            e.target.value = "";
           }}
           onChange={(e) => {
             let newName = e.target.value;

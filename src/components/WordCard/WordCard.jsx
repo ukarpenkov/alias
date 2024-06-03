@@ -2,6 +2,7 @@ import {
   Button,
   ButtonGroup,
   Counter,
+  Div,
   Group,
   ModalCardBase,
   PanelHeader,
@@ -143,13 +144,16 @@ export const WordCard = ({ changePanel }) => {
           />
         </Group>
         <div className="current-result-wrapper ">
-          <div className="current-result">
-            <Button size="m" style={{ backgroundColor: "green" }}>
+          <div
+            className="current-result"
+            style={{ display: "grid", justifyItems: "center" }}
+          >
+            <h3 size="m" style={{ color: "green" }}>
               Отгадано: {guessedWordsCount}
-            </Button>
-            <Button size="m" style={{ backgroundColor: "red" }}>
+            </h3>
+            <h3 size="m" style={{ color: "red" }}>
               Пропущено: {notGuessedWordsCount}
-            </Button>
+            </h3>
           </div>
         </div>
       </div>

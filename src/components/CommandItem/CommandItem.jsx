@@ -37,7 +37,7 @@ export const CommandItem = ({
       {commandsCount <= 2 ? (
         <Button
           size="l"
-          disabled={result === "false" ? false : true}
+          disabled={true}
           appearance="accent"
           className="score-info"
           before={result === "false" ? <Icon16Cancel /> : `${currentScore}`}

@@ -97,8 +97,8 @@ export const WordsEdit = ({ changePanel }) => {
           style={{
             display: "flex",
             width: "100%",
-            "justify-content": "space-between",
-            "align-items": "center",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
           <h1>Очки раунда</h1>
@@ -114,10 +114,10 @@ export const WordsEdit = ({ changePanel }) => {
           </div>
         </div>
         {commonWords ? (
-          <>
+          <div className="words-edit-wrapper">
             {guessedWords.map((word) => {
               return (
-                <div className="command-card" key={word + 1}>
+                <div className="word-card" key={`id:${word}`}>
                   <Input
                     disabled
                     style={{ width: "100%" }}
@@ -135,7 +135,7 @@ export const WordsEdit = ({ changePanel }) => {
             })}
             {notGuessedWords.map((word) => {
               return (
-                <div className="command-card" key={word}>
+                <div className="word-card" key={`id:${word}`}>
                   <Input
                     disabled
                     style={{ width: "100%" }}
@@ -151,7 +151,7 @@ export const WordsEdit = ({ changePanel }) => {
                 </div>
               );
             })}
-          </>
+          </div>
         ) : (
           <h3 style={{ display: "flex", alignItems: "center" }}>
             <p>Вы ничего не сделали&nbsp;</p>

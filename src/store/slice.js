@@ -50,7 +50,7 @@ const gameSlice = createSlice({
       let index = updatedState.findIndex(
         (item) => item.id === action.payload.id
       );
-      console.log(index);
+
       updatedState[index].name = action.payload.name;
     },
     changeRoundTime(state, action) {
@@ -116,7 +116,6 @@ const gameSlice = createSlice({
       let currentRoundNotGuessedWords =
         rounds[rounds.length - 1].notGuessedWords;
       let wordIndex = currentRoundNotGuessedWords.indexOf(action.payload.word);
-      console.log(wordIndex);
       currentRoundNotGuessedWords.splice(wordIndex, 1);
       rounds[rounds.length - 1].guessedWords.unshift(action.payload.word);
       state.commands = updatedState;

@@ -22,6 +22,11 @@ export const CommandItem = ({
           onFocus={(e) => {
             e.target.value = "";
           }}
+          onBlur={(e) =>
+            e.target.value === ""
+              ? (e.target.value = "Комада без названия")
+              : e.target.value
+          }
           onChange={(e) => {
             let newName = e.target.value;
             editCommand({ name: newName, id: id });

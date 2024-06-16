@@ -1,22 +1,13 @@
 import {
   Button,
   ButtonGroup,
-  Counter,
-  Div,
   Group,
   ModalCardBase,
-  PanelHeader,
-  Tabbar,
-  TabbarItem,
 } from "@vkontakte/vkui";
 import {
   Icon20CancelCircleFillRed,
   Icon20CheckCircleFillGreen,
-  Icon20CheckCircleOn,
-  Icon20Clear,
   Icon20Clock,
-  Icon24Back,
-  Icon28SwitchOutline,
 } from "@vkontakte/icons";
 import { Timer } from "../Timer/Timer";
 import "./WordCard.css";

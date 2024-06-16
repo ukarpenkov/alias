@@ -1,11 +1,10 @@
-import { PanelHeader, Tabbar, TabbarItem } from "@vkontakte/vkui";
+import { Tabbar, TabbarItem } from "@vkontakte/vkui";
 import { Icon24Back } from "@vkontakte/icons";
 
 export const Rules = ({ changePanel }) => {
   return (
     <>
       <h1>Правила</h1>
-
       <div style={{ marginLeft: "-20px" }}>
         <ul>
           <li>

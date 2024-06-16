@@ -3,7 +3,6 @@ import {
   FormLayout,
   Group,
   Input,
-  PanelHeader,
   Slider,
   Tabbar,
   TabbarItem,
@@ -15,17 +14,9 @@ import { changeRoundTime, changeWordsCount } from "../../store/slice";
 
 export const GameSettings = ({ changePanel }) => {
   const settings = useSelector((state) => state.game.settings);
-  const clgState = useSelector((state) => state.game);
-  const commands = useSelector((state) => state.game.commands);
   const dispatch = useDispatch();
-
   const [wordsCount, setWordsCount] = useState(settings.wordsToWin);
   const [roundTime, setRoundTime] = useState(settings.roundTime);
-
-  const changeWordsCountHandler = (e) => {
-    dispatch(changeWordsCount(Number(e.target.value)));
-    setWordsCount(Number(e.target.value));
-  };
 
   useEffect(() => {
     dispatch(changeWordsCount(Number(wordsCount)));

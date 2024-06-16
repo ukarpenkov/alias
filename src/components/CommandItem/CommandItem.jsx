@@ -1,5 +1,4 @@
 import { Button, Card, Input } from "@vkontakte/vkui";
-
 import { Icon16Cancel } from "@vkontakte/icons";
 import "./CommandItem.css";
 

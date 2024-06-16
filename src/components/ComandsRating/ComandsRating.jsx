@@ -1,10 +1,4 @@
-import {
-  Button,
-  PanelHeader,
-  Placeholder,
-  Tabbar,
-  TabbarItem,
-} from "@vkontakte/vkui";
+import { Placeholder, Tabbar, TabbarItem } from "@vkontakte/vkui";
 import {
   Icon16Cards2,
   Icon20FireCircleFillRed,

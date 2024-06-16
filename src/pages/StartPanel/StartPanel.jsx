@@ -1,8 +1,7 @@
-import { Button, PanelHeader, Tabbar, TabbarItem } from "@vkontakte/vkui";
+import { Button, Tabbar, TabbarItem } from "@vkontakte/vkui";
 import {
   Icon20AddCircleFill,
   Icon20ArrowRightOutline,
-  Icon20Clear,
   Icon20ErrorCircleFillYellow,
   Icon24Back,
 } from "@vkontakte/icons";

@@ -1,19 +1,6 @@
-import {
-  Button,
-  Panel,
-  PanelHeader,
-  Placeholder,
-  Tabbar,
-  TabbarItem,
-  View,
-} from "@vkontakte/vkui";
-import {
-  Icon16Replay,
-  Icon20CrownCircleFillVkDating,
-  Icon24SadFaceOutline,
-} from "@vkontakte/icons";
-import { useDispatch, useSelector } from "react-redux";
-import { reset } from "../../store/slice";
+import { Panel, Placeholder, Tabbar, TabbarItem, View } from "@vkontakte/vkui";
+import { Icon16Replay, Icon20CrownCircleFillVkDating } from "@vkontakte/icons";
+import { useSelector } from "react-redux";
 
 export const Result = ({ changePanel }) => {
   const winner = useSelector((state) => state.game.winner);

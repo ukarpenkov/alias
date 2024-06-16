@@ -2,7 +2,6 @@ import {
   Button,
   Input,
   Panel,
-  PanelHeader,
   Tabbar,
   TabbarItem,
   View,

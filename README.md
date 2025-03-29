@@ -1,7 +1,5 @@
 # VK Mini Apps Game
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Node.js CI](https://github.com/your-username/alias/actions/workflows/node.js.yml/badge.svg)](https://github.com/your-username/alias/actions)
 [![VK Mini Apps](https://img.shields.io/badge/VK-Mini%20Apps-blue)](https://vk.com/app51912640)
 
 An interactive and lightweight game designed for VK Mini Apps, seamlessly integrated with the VK platform.
